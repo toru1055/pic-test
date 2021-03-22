@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <executable name="dist/default/production/sin_wave.X.production.hex">
+    <memory name="program">
+      <units>words</units>
+      <length>16384</length>
+      <used>4660</used>
+      <free>11724</free>
+    </memory>
+    <memory name="data">
+      <units>bytes</units>
+      <length>2016</length>
+      <used>403</used>
+      <free>1613</free>
+    </memory>
+  </executable>
+</project>
