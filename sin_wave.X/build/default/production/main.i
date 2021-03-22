@@ -20195,11 +20195,11 @@ void main(void)
 
     Index = 0;
     temp = 9;
+    TMR2_Period8BitSet(temp);
     while (1)
     {
         while(PIR1bits.TMR2IF == 0);
         PIR1bits.TMR2IF = 0;
-        TMR2_Period8BitSet(temp);
         DAC1_Load10bitInputData(Wave[Index++]);
         if(Index > 99)
             Index = 0;

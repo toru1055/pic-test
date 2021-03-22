@@ -6,6 +6,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "361 /Applications/microchip/xc8/v2.32/pic/include/c99/math.h
 [; ;/Applications/microchip/xc8/v2.32/pic/include/c99/math.h: 361: float sinf(float);
 [v _sinf `(f ~T0 @X0 0 ef1`f ]
+"777 ./mcc_generated_files/tmr2.h
+[; ;./mcc_generated_files/tmr2.h: 777: void TMR2_Period8BitSet(uint8_t periodVal);
+[v _TMR2_Period8BitSet `(v ~T0 @X0 0 ef1`uc ]
 "642 /Applications/microchip/mplabx/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8/pic/include/proc/pic16f1778.h
 [; ;/Applications/microchip/mplabx/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8/pic/include/proc/pic16f1778.h: 642:     struct {
 [s S42 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -21,9 +24,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "657
 [; ;/Applications/microchip/mplabx/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8/pic/include/proc/pic16f1778.h: 657: extern volatile PIR1bits_t PIR1bits __attribute__((address(0x011)));
 [v _PIR1bits `VS41 ~T0 @X0 0 e@17 ]
-"777 ./mcc_generated_files/tmr2.h
-[; ;./mcc_generated_files/tmr2.h: 777: void TMR2_Period8BitSet(uint8_t periodVal);
-[v _TMR2_Period8BitSet `(v ~T0 @X0 0 ef1`uc ]
 "156 ./mcc_generated_files/dac1.h
 [; ;./mcc_generated_files/dac1.h: 156: void DAC1_Load10bitInputData(uint16_t input10BitData);
 [v _DAC1_Load10bitInputData `(v ~T0 @X0 0 ef1`us ]
@@ -1752,24 +1752,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 76:     temp = 9;
 [e = _temp -> -> 9 `i `us ]
 "77
-[; ;main.c: 77:     while (1)
-[e :U 1736 ]
+[; ;main.c: 77:     TMR2_Period8BitSet(temp);
+[e ( _TMR2_Period8BitSet (1 -> _temp `uc ]
 "78
-[; ;main.c: 78:     {
-{
+[; ;main.c: 78:     while (1)
+[e :U 1736 ]
 "79
-[; ;main.c: 79:         while(PIR1bits.TMR2IF == 0);
+[; ;main.c: 79:     {
+{
+"80
+[; ;main.c: 80:         while(PIR1bits.TMR2IF == 0);
 [e $U 1738  ]
 [e :U 1739 ]
 [e :U 1738 ]
 [e $ == -> . . _PIR1bits 0 1 `i -> 0 `i 1739  ]
 [e :U 1740 ]
-"80
-[; ;main.c: 80:         PIR1bits.TMR2IF = 0;
-[e = . . _PIR1bits 0 1 -> -> 0 `i `uc ]
 "81
-[; ;main.c: 81:         TMR2_Period8BitSet(temp);
-[e ( _TMR2_Period8BitSet (1 -> _temp `uc ]
+[; ;main.c: 81:         PIR1bits.TMR2IF = 0;
+[e = . . _PIR1bits 0 1 -> -> 0 `i `uc ]
 "82
 [; ;main.c: 82:         DAC1_Load10bitInputData(Wave[Index++]);
 [e ( _DAC1_Load10bitInputData (1 *U + &U _Wave * -> ++ _Index -> -> 1 `i `us `ux -> -> # *U &U _Wave `ui `ux ]
