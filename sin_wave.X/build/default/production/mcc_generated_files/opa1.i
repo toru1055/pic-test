@@ -19490,5 +19490,5 @@ void OPA1_Initialize(void)
 
     OPA1NCHS = 0x00;
 
-    OPA1PCHS = 0x00;
+    OPA1PCHS = 0x02;
 }

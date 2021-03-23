@@ -1745,8 +1745,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _DAC1_Initialize ]
 [f ]
 "71
-[; ;mcc_generated_files/dac1.c: 71:     DAC1CON0 = 0xA0;
-[e = _DAC1CON0 -> -> 160 `i `uc ]
+[; ;mcc_generated_files/dac1.c: 71:     DAC1CON0 = 0x80;
+[e = _DAC1CON0 -> -> 128 `i `uc ]
 "73
 [; ;mcc_generated_files/dac1.c: 73:     DAC1REFH = 0x00;
 [e = _DAC1REFH -> -> 0 `i `uc ]

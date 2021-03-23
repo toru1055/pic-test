@@ -19487,7 +19487,7 @@ uint16_t DAC1_Read10BitInputData(void);
 void DAC1_Initialize(void)
 {
 
-    DAC1CON0 = 0xA0;
+    DAC1CON0 = 0x80;
 
     DAC1REFH = 0x00;
 

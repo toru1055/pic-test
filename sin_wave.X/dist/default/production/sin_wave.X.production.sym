@@ -1,5 +1,5 @@
 __pbssBIGRAM_1 2728 0 ABS 0
-__end_of_TMR2_ISR 1640 0 CODE 0
+__end_of_TMR2_ISR 163E 0 CODE 0
 _n 13C 0 BANK2 1
 __Hstringtext14 0 0 ABS 0
 __Lstringtext14 0 0 ABS 0
@@ -16,7 +16,7 @@ __pintentry 4 0 CODE 0
 __end_of_S2 180C 0 STRCODE 0
 __Hstringtext17 0 0 ABS 0
 __Lstringtext17 0 0 ABS 0
-_TMR2_DefaultInterruptHandler 3 0 CODE 0
+_TMR2_DefaultInterruptHandler 7FF 0 CODE 0
 ___fladd@signs 4A 0 BANK0 1
 __pstringtext17 1840 0 STRCODE 0
 _TMR2 493 0 ABS 0
@@ -43,7 +43,7 @@ btemp 7E 0 ABS 0
 ?___fladd 3A 0 BANK0 1
 start 19 0 CODE 0
 __end_of_S4 1804 0 STRCODE 0
-__end_of_DAC1_Load10bitInputData 164E 0 CODE 0
+__end_of_DAC1_Load10bitInputData 1646 0 CODE 0
 ___fltol@f1 4E 0 BANK0 1
 _TRISA 8C 0 ABS 0
 _TRISB 8D 0 ABS 0
@@ -94,7 +94,7 @@ int$flags 7E 0 ABS 0
 ___xxtofl 71F 0 CODE 0
 __Hfunctab 0 0 ENTRY 0
 __Lfunctab 0 0 ENTRY 0
-__end_of_WDT_Initialize 163A 0 CODE 0
+__end_of_WDT_Initialize 1638 0 CODE 0
 _INTERRUPT_InterruptManager 4 0 CODE 0
 ?___fltol 4E 0 BANK0 1
 ___sindf@w A8 0 BANK1 1
@@ -175,7 +175,7 @@ __end_of_main 1800 0 CODE 0
 __Htext 0 0 ABS 0
 __Ltext 0 0 ABS 0
 __Umul8_16@product 74 0 COMMON 1
-__end_of_TMR2_SetInterruptHandler 1646 0 CODE 0
+__end_of_TMR2_SetInterruptHandler 7FF 0 CODE 0
 ___sindf$1266 AC 0 BANK1 1
 ?___xxtofl 70 0 COMMON 1
 ___flmul@sign 2D 0 BANK0 1
@@ -210,7 +210,7 @@ __Hsfr22 0 0 ABS 0
 __Lsfr22 0 0 ABS 0
 __Hsfr13 0 0 ABS 0
 __Lsfr13 0 0 ABS 0
-__end_of_OPA1_Initialize 800 0 CODE 0
+__end_of_OPA1_Initialize 1656 0 CODE 0
 __Hsfr23 0 0 ABS 0
 __size_of_OPA1_Initialize 0 0 ABS 0
 __Lsfr23 0 0 ABS 0
@@ -243,7 +243,7 @@ __Lsfr19 0 0 ABS 0
 __Hsfr29 0 0 ABS 0
 __Lsfr29 0 0 ABS 0
 _DACLDbits 58D 0 ABS 0
-_DAC1_Load10bitInputData 1646 0 CODE 0
+_DAC1_Load10bitInputData 163E 0 CODE 0
 __Hstrings 0 0 ABS 0
 _T2CONbits 495 0 ABS 0
 __Lstrings 0 0 ABS 0
@@ -265,7 +265,7 @@ __Hbank2 0 0 ABS 0
 __Lbank2 0 0 ABS 0
 ___rem_pio2f@u B3 0 BANK1 1
 __Hbank3 0 0 ABS 0
-_TMR2_SetInterruptHandler 1640 0 CODE 0
+_TMR2_SetInterruptHandler 7F9 0 CODE 0
 __Lbank3 0 0 ABS 0
 ___latbits 3 0 ABS 0
 __Hbank4 0 0 ABS 0
@@ -314,8 +314,8 @@ __size_of___xxtofl 0 0 ABS 0
 __end_of_s2pio2 1840 0 STRCODE 0
 __end_of_s3pio2 183C 0 STRCODE 0
 ___fladd B71 0 CODE 0
-_DAC1_Initialize 164E 0 CODE 0
-_OPA1_Initialize 7F9 0 CODE 0
+_DAC1_Initialize 1646 0 CODE 0
+_OPA1_Initialize 164E 0 CODE 0
 _TMR2_Initialize 1696 0 CODE 0
 ___sindf 98B 0 CODE 0
 ___cosdf 875 0 CODE 0
@@ -363,7 +363,7 @@ __pstringtext4 180C 0 STRCODE 0
 clear_ram0 166A 0 CODE 0
 ___rem_pio2f@F533 134 0 BANK2 1
 __size_of_SYSTEM_Initialize 0 0 ABS 0
-__end_of_TMR2_DefaultInterruptHandler 4 0 CODE 0
+__end_of_TMR2_DefaultInterruptHandler 800 0 CODE 0
 _DAC1CON0 58E 0 ABS 0
 __Hstringtext13 0 0 ABS 0
 ___rem_pio2f$1265 B7 0 BANK1 1
@@ -408,14 +408,14 @@ __ptext10 DA9 0 CODE 0
 __Lstringtext16 0 0 ABS 0
 __Hbank15 0 0 ABS 0
 __Lbank15 0 0 ABS 0
-__ptext20 164E 0 CODE 0
+__ptext20 1646 0 CODE 0
 __Hbank25 0 0 ABS 0
 __pstringtext16 183C 0 STRCODE 0
 __Lbank25 0 0 ABS 0
 __ptext11 16EF 0 CODE 0
 __Hbank16 0 0 ABS 0
 __Lbank16 0 0 ABS 0
-__ptext21 1646 0 CODE 0
+__ptext21 163E 0 CODE 0
 __Hbank26 0 0 BANK26 1
 __Lbank26 0 0 BANK26 1
 __end_of_TMR2_CallBack 1683 0 CODE 0
@@ -431,29 +431,29 @@ __ptext13 1683 0 CODE 0
 __Hbank18 0 0 ABS 0
 __pbssBANK2 130 0 BANK2 1
 __Lbank18 0 0 ABS 0
-__ptext23 163A 0 CODE 0
+__ptext23 1638 0 CODE 0
 __Hbank28 0 0 BANK28 1
 __Lbank28 0 0 BANK28 1
-__ptext14 1636 0 CODE 0
+__ptext14 1634 0 CODE 0
 __Hbank19 0 0 ABS 0
 __Lbank19 0 0 ABS 0
 __ptext24 1676 0 CODE 0
 __Hbank29 0 0 BANK29 1
 __Lbank29 0 0 BANK29 1
 __ptext15 1696 0 CODE 0
-__ptext25 3 0 CODE 0
-__ptext16 1640 0 CODE 0
+__ptext25 7FF 0 CODE 0
+__ptext16 7F9 0 CODE 0
 __ptext17 7CB 0 CODE 0
 __ptext18 1656 0 CODE 0
 ___fltol@sign1 57 0 BANK0 1
-__ptext19 7F9 0 CODE 0
+__ptext19 164E 0 CODE 0
 sinf@__xc8_float_word D3 0 BANK1 1
 _INTCONbits B 0 ABS 0
 __Umul8_16@word_mpld 76 0 COMMON 1
 __Hend_init 1B 0 CODE 0
 __Lend_init 19 0 CODE 0
 _DAC1REFH 590 0 ABS 0
-_WDT_Initialize 1636 0 CODE 0
+_WDT_Initialize 1634 0 CODE 0
 __size_of___fladd 0 0 ABS 0
 _DAC1REFL 58F 0 ABS 0
 ___rem_pio2f 432 0 CODE 0
@@ -487,7 +487,7 @@ __end_of_C2 182C 0 STRCODE 0
 __size_of_WDT_Initialize 0 0 ABS 0
 __end_of__Umul8_16 1712 0 CODE 0
 ___rem_pio2f@ty A9 0 BANK1 1
-_TMR2_ISR 163A 0 CODE 0
+_TMR2_ISR 1638 0 CODE 0
 __size_of_TMR2_DefaultInterruptHandler 0 0 ABS 0
 __end_of_C3 1828 0 STRCODE 0
 __size_of___fltol 0 0 ABS 0
@@ -528,7 +528,7 @@ __Hstringtext6 0 0 ABS 0
 __Lstringtext6 0 0 ABS 0
 __pstringtext6 1814 0 STRCODE 0
 ___flmul@b 20 0 BANK0 1
-__end_of_DAC1_Initialize 1656 0 CODE 0
+__end_of_DAC1_Initialize 164E 0 CODE 0
 %segments
 reset_vec 0 3 CODE 0 0
 intentry 8 FFF CODE 8 0
@@ -551,16 +551,15 @@ text24 2CEC 2D05 CODE 2CEC 0
 clrtext 2CD4 2CEB CODE 2CD4 0
 text8 2CBC 2CD3 CODE 2CBC 0
 text18 2CAC 2CBB CODE 2CAC 0
-text20 2C9C 2CAB CODE 2C9C 0
-text21 2C8C 2C9B CODE 2C8C 0
-text16 2C80 2C8B CODE 2C80 0
-text23 2C74 2C7F CODE 2C74 0
+text19 2C9C 2CAB CODE 2C9C 0
+text20 2C8C 2C9B CODE 2C8C 0
+text21 2C7C 2C8B CODE 2C7C 0
+text23 2C70 2C7B CODE 2C70 0
 stringtext1 3000 3087 STRCODE 3000 0
-text14 2C6C 2C73 CODE 2C6C 0
-text25 6 7 CODE 6 0
+text14 2C68 2C6F CODE 2C68 0
 %locals
 dist/default/production/sin_wave.X.production.o
-/tmp/xclWwW57A.s
+/tmp/xcRmvSxWf.s
 8372 1B 0 CODE 0
 8375 1B 0 CODE 0
 8418 1B 0 CODE 0
@@ -1028,9 +1027,9 @@ mcc_generated_files/mcc.c
 57 168F 0 CODE 0
 58 1692 0 CODE 0
 59 1695 0 CODE 0
-73 1636 0 CODE 0
-76 1636 0 CODE 0
-77 1639 0 CODE 0
+73 1634 0 CODE 0
+76 1634 0 CODE 0
+77 1637 0 CODE 0
 mcc_generated_files/tmr2.c
 64 1696 0 CODE 0
 69 1696 0 CODE 0
@@ -1043,9 +1042,9 @@ mcc_generated_files/tmr2.c
 90 16A2 0 CODE 0
 93 16A9 0 CODE 0
 94 16AC 0 CODE 0
-186 1640 0 CODE 0
-187 1640 0 CODE 0
-188 1645 0 CODE 0
+186 7F9 0 CODE 0
+187 7F9 0 CODE 0
+188 7FE 0 CODE 0
 mcc_generated_files/pin_manager.c
 55 7CB 0 CODE 0
 60 7CB 0 CODE 0
@@ -1081,25 +1080,25 @@ mcc_generated_files/mcc.c
 70 165C 0 CODE 0
 71 165D 0 CODE 0
 mcc_generated_files/opa1.c
-58 7F9 0 CODE 0
-61 7F9 0 CODE 0
-63 7FC 0 CODE 0
-65 7FD 0 CODE 0
-67 7FE 0 CODE 0
-68 7FF 0 CODE 0
+58 164E 0 CODE 0
+61 164E 0 CODE 0
+63 1651 0 CODE 0
+65 1652 0 CODE 0
+67 1653 0 CODE 0
+68 1655 0 CODE 0
 mcc_generated_files/dac1.c
-68 164E 0 CODE 0
-71 164E 0 CODE 0
-73 1651 0 CODE 0
-75 1652 0 CODE 0
-77 1654 0 CODE 0
-78 1655 0 CODE 0
-94 1646 0 CODE 0
-98 1646 0 CODE 0
-101 1648 0 CODE 0
-102 164A 0 CODE 0
-104 164C 0 CODE 0
-105 164D 0 CODE 0
+68 1646 0 CODE 0
+71 1646 0 CODE 0
+73 1649 0 CODE 0
+75 164A 0 CODE 0
+77 164C 0 CODE 0
+78 164D 0 CODE 0
+94 163E 0 CODE 0
+98 163E 0 CODE 0
+101 1640 0 CODE 0
+102 1642 0 CODE 0
+104 1644 0 CODE 0
+105 1645 0 CODE 0
 mcc_generated_files/interrupt_manager.c
 52 4 0 CODE 0
 55 6 0 CODE 0
@@ -1107,13 +1106,13 @@ mcc_generated_files/interrupt_manager.c
 59 14 0 CODE 0
 70 17 0 CODE 0
 mcc_generated_files/tmr2.c
-165 163A 0 CODE 0
-169 163A 0 CODE 0
-173 163C 0 CODE 0
-174 163F 0 CODE 0
+165 1638 0 CODE 0
+169 1638 0 CODE 0
+173 163A 0 CODE 0
+174 163D 0 CODE 0
 176 1676 0 CODE 0
 180 1676 0 CODE 0
 182 167D 0 CODE 0
 184 1682 0 CODE 0
-190 3 0 CODE 0
-193 3 0 CODE 0
+190 7FF 0 CODE 0
+193 7FF 0 CODE 0

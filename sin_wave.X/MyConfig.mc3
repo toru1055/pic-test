@@ -2607,7 +2607,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="OPA1" registerAlias="OPAPCHS" settingAlias="OPAPCH"/>
-         <value>OPA1IN0+</value>
+         <value>DAC1_out</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="WPUB" settingAlias="WPUB6"/>
@@ -3011,7 +3011,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="DAC1" registerAlias="DACCON0"/>
-         <value>160</value>
+         <value>128</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="TRISC" settingAlias="TRISC5" alias="input"/>
@@ -3691,7 +3691,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="OPA1" registerAlias="OPAPCHS"/>
-         <value>0</value>
+         <value>2</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="ANSELB" settingAlias="ANSB1" alias="digital"/>
@@ -5343,7 +5343,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DAC1" registerAlias="DACCON0" settingAlias="DACOE1"/>
-         <value>enabled</value>
+         <value>disabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="Pin Module" registerAlias="RA7PPS"/>
@@ -5909,7 +5909,7 @@
       </entry>
       <entry>
          <file>mcc_generated_files/pin_manager.h</file>
-         <hash>77931a65b3068bdcbe9cc9dbc491c41c91ce5c609d182b5a3457687c3507b2f1</hash>
+         <hash>c791fc35a8c4f41b87810c2f4392dfb731eb876342fcea62425fde6260b72e9a</hash>
       </entry>
       <entry>
          <file>main.c</file>
@@ -5949,7 +5949,7 @@
       </entry>
       <entry>
          <file>mcc_generated_files/dac1.c</file>
-         <hash>7b952333777f93026a8763c94c4a047a69c1a7d41a7f5a47fe6a2af04b6cc91b</hash>
+         <hash>ec637dc75de53dab7b528b3beeda58bbef930bb2e97708e865c08c251f55b88f</hash>
       </entry>
       <entry>
          <file>mcc_generated_files/mcc.c</file>
@@ -5961,7 +5961,7 @@
       </entry>
       <entry>
          <file>mcc_generated_files/opa1.c</file>
-         <hash>61eebb4fc566f1cd2622313aeb4c5a0493a712ce4ca336a6e4bcaaff877337f1</hash>
+         <hash>48324ccec09177e57c931eb798c3b8a813f79a3e657c68bd55854ed0a3a604a7</hash>
       </entry>
    </generatedFileHashHistoryMap>
    <mc3libFileHashHistoryMap class="java.util.HashMap"/>

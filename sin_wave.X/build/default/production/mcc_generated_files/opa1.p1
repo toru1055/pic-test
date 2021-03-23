@@ -1715,8 +1715,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;mcc_generated_files/opa1.c: 65:     OPA1NCHS = 0x00;
 [e = _OPA1NCHS -> -> 0 `i `uc ]
 "67
-[; ;mcc_generated_files/opa1.c: 67:     OPA1PCHS = 0x00;
-[e = _OPA1PCHS -> -> 0 `i `uc ]
+[; ;mcc_generated_files/opa1.c: 67:     OPA1PCHS = 0x02;
+[e = _OPA1PCHS -> -> 2 `i `uc ]
 "68
 [; ;mcc_generated_files/opa1.c: 68: }
 [e :UE 1731 ]

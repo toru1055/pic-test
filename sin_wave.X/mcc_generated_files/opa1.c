@@ -63,8 +63,8 @@ void OPA1_Initialize(void)
     OPA1ORS = 0x00;
     // NCH OPA1IN0-; 
     OPA1NCHS = 0x00;
-    // PCH OPA1IN0+; 
-    OPA1PCHS = 0x00;
+    // PCH DAC1_out; 
+    OPA1PCHS = 0x02;
 }
 /**
  End of File
