@@ -43,6 +43,7 @@
 
 #include "mcc_generated_files/mcc.h"
 #include <math.h>
+#include <stdio.h>
 /*
                          Main application
  */
@@ -74,14 +75,15 @@ void main(void)
     
     Index = 0;
     temp = 9;
-    TMR2_Period8BitSet(temp);
+//    TMR2_Period8BitSet(temp);
     while (1)
     {
-        while(PIR1bits.TMR2IF == 0);
-        PIR1bits.TMR2IF = 0;
-        DAC1_Load10bitInputData(Wave[Index++]);
-        if(Index > 99)
-            Index = 0;
+        DAC1_Load10bitInputData(1000);
+//        while(PIR1bits.TMR2IF == 0);
+//        PIR1bits.TMR2IF = 0;
+//        DAC1_Load10bitInputData(Wave[Index++]);
+//        if(Index > 99)
+//            Index = 0;
 //        RA1 = 1;
 //        __delay_us(1908);
 //        RA1 = 0;

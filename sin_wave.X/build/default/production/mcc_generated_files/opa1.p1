@@ -1,55 +1,16 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"13121 /Applications/microchip/mplabx/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8/pic/include/proc/pic16f1778.h
-[; ;/Applications/microchip/mplabx/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8/pic/include/proc/pic16f1778.h: 13121: extern volatile unsigned char DAC1CON0 __attribute__((address(0x58E)));
-[v _DAC1CON0 `Vuc ~T0 @X0 0 e@1422 ]
-"13768
-[; ;/Applications/microchip/mplabx/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8/pic/include/proc/pic16f1778.h: 13768: extern volatile unsigned char DAC1REFH __attribute__((address(0x590)));
-[v _DAC1REFH `Vuc ~T0 @X0 0 e@1424 ]
-"13346
-[; ;/Applications/microchip/mplabx/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8/pic/include/proc/pic16f1778.h: 13346: extern volatile unsigned char DAC1REFL __attribute__((address(0x58F)));
-[v _DAC1REFL `Vuc ~T0 @X0 0 e@1423 ]
-"13094
-[; ;/Applications/microchip/mplabx/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8/pic/include/proc/pic16f1778.h: 13094:     struct {
-[s S662 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S662 . DAC1LD DAC2LD . DAC5LD ]
-"13093
-[; ;/Applications/microchip/mplabx/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8/pic/include/proc/pic16f1778.h: 13093: typedef union {
-[u S661 `S662 1 ]
-[n S661 . . ]
-"13101
-[; ;/Applications/microchip/mplabx/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8/pic/include/proc/pic16f1778.h: 13101: extern volatile DACLDbits_t DACLDbits __attribute__((address(0x58D)));
-[v _DACLDbits `VS661 ~T0 @X0 0 e@1421 ]
-"13127
-[; ;/Applications/microchip/mplabx/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8/pic/include/proc/pic16f1778.h: 13127:     struct {
-[s S664 :2 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S664 . NSS PSS OE2 OE1 FM EN ]
-"13135
-[; ;/Applications/microchip/mplabx/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8/pic/include/proc/pic16f1778.h: 13135:     struct {
-[s S665 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S665 . NSS0 NSS1 PSS0 PSS1 . OE ]
-"13143
-[; ;/Applications/microchip/mplabx/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8/pic/include/proc/pic16f1778.h: 13143:     struct {
-[s S666 :2 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S666 . DACNSS DACPSS DACOE2 DACOE1 DACFM DACEN ]
-"13151
-[; ;/Applications/microchip/mplabx/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8/pic/include/proc/pic16f1778.h: 13151:     struct {
-[s S667 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S667 . DACNSS0 DACNSS1 DACPSS0 DACPSS1 . DACOE ]
-"13159
-[; ;/Applications/microchip/mplabx/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8/pic/include/proc/pic16f1778.h: 13159:     struct {
-[s S668 :2 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S668 . DAC1NSS DAC1PSS DAC1OE2 DAC1OE1 DAC1FM DAC1EN ]
-"13167
-[; ;/Applications/microchip/mplabx/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8/pic/include/proc/pic16f1778.h: 13167:     struct {
-[s S669 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S669 . DAC1NSS0 DAC1NSS1 DAC1PSS0 DAC1PSS1 ]
-"13126
-[; ;/Applications/microchip/mplabx/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8/pic/include/proc/pic16f1778.h: 13126: typedef union {
-[u S663 `S664 1 `S665 1 `S666 1 `S667 1 `S668 1 `S669 1 ]
-[n S663 . . . . . . . ]
-"13174
-[; ;/Applications/microchip/mplabx/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8/pic/include/proc/pic16f1778.h: 13174: extern volatile DAC1CON0bits_t DAC1CON0bits __attribute__((address(0x58E)));
-[v _DAC1CON0bits `VS663 ~T0 @X0 0 e@1422 ]
+"12616 /Applications/microchip/mplabx/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8/pic/include/proc/pic16f1778.h
+[; ;/Applications/microchip/mplabx/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8/pic/include/proc/pic16f1778.h: 12616: extern volatile unsigned char OPA1CON __attribute__((address(0x511)));
+[v _OPA1CON `Vuc ~T0 @X0 0 e@1297 ]
+"12712
+[; ;/Applications/microchip/mplabx/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8/pic/include/proc/pic16f1778.h: 12712: extern volatile unsigned char OPA1ORS __attribute__((address(0x512)));
+[v _OPA1ORS `Vuc ~T0 @X0 0 e@1298 ]
+"12560
+[; ;/Applications/microchip/mplabx/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8/pic/include/proc/pic16f1778.h: 12560: extern volatile unsigned char OPA1NCHS __attribute__((address(0x50F)));
+[v _OPA1NCHS `Vuc ~T0 @X0 0 e@1295 ]
+"12588
+[; ;/Applications/microchip/mplabx/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8/pic/include/proc/pic16f1778.h: 12588: extern volatile unsigned char OPA1PCHS __attribute__((address(0x510)));
+[v _OPA1PCHS `Vuc ~T0 @X0 0 e@1296 ]
 "54 /Applications/microchip/mplabx/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8/pic/include/proc/pic16f1778.h
 [; ;/Applications/microchip/mplabx/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8/pic/include/proc/pic16f1778.h: 54: __asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
@@ -1736,135 +1697,27 @@ Version 4.0 HI-TECH Software Intermediate Code
 "37740
 [; ;/Applications/microchip/mplabx/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8/pic/include/proc/pic16f1778.h: 37740: __asm("TOSH equ 0FEFh");
 [; <" TOSH equ 0FEFh ;# ">
-"68 mcc_generated_files/dac1.c
-[; ;mcc_generated_files/dac1.c: 68: void DAC1_Initialize(void)
-[v _DAC1_Initialize `(v ~T0 @X0 1 ef ]
-"69
-[; ;mcc_generated_files/dac1.c: 69: {
+"58 mcc_generated_files/opa1.c
+[; ;mcc_generated_files/opa1.c: 58: void OPA1_Initialize(void)
+[v _OPA1_Initialize `(v ~T0 @X0 1 ef ]
+"59
+[; ;mcc_generated_files/opa1.c: 59: {
 {
-[e :U _DAC1_Initialize ]
+[e :U _OPA1_Initialize ]
 [f ]
-"71
-[; ;mcc_generated_files/dac1.c: 71:     DAC1CON0 = 0xA0;
-[e = _DAC1CON0 -> -> 160 `i `uc ]
-"73
-[; ;mcc_generated_files/dac1.c: 73:     DAC1REFH = 0x00;
-[e = _DAC1REFH -> -> 0 `i `uc ]
-"75
-[; ;mcc_generated_files/dac1.c: 75:     DAC1REFL = 0xCD;
-[e = _DAC1REFL -> -> 205 `i `uc ]
-"77
-[; ;mcc_generated_files/dac1.c: 77:     (DACLDbits.DAC1LD = 1);
-[e = . . _DACLDbits 0 0 -> -> 1 `i `uc ]
-"78
-[; ;mcc_generated_files/dac1.c: 78: }
+"61
+[; ;mcc_generated_files/opa1.c: 61:     OPA1CON = 0x90;
+[e = _OPA1CON -> -> 144 `i `uc ]
+"63
+[; ;mcc_generated_files/opa1.c: 63:     OPA1ORS = 0x00;
+[e = _OPA1ORS -> -> 0 `i `uc ]
+"65
+[; ;mcc_generated_files/opa1.c: 65:     OPA1NCHS = 0x00;
+[e = _OPA1NCHS -> -> 0 `i `uc ]
+"67
+[; ;mcc_generated_files/opa1.c: 67:     OPA1PCHS = 0x00;
+[e = _OPA1PCHS -> -> 0 `i `uc ]
+"68
+[; ;mcc_generated_files/opa1.c: 68: }
 [e :UE 1731 ]
-}
-"81
-[; ;mcc_generated_files/dac1.c: 81: void DAC1_Load16bitInputData(uint16_t input16BitData)
-[v _DAC1_Load16bitInputData `(v ~T0 @X0 1 ef1`us ]
-"82
-[; ;mcc_generated_files/dac1.c: 82: {
-{
-[e :U _DAC1_Load16bitInputData ]
-"81
-[; ;mcc_generated_files/dac1.c: 81: void DAC1_Load16bitInputData(uint16_t input16BitData)
-[v _input16BitData `us ~T0 @X0 1 r1 ]
-"82
-[; ;mcc_generated_files/dac1.c: 82: {
-[f ]
-"85
-[; ;mcc_generated_files/dac1.c: 85:     DAC1CON0bits.DAC1FM = 1;
-[e = . . _DAC1CON0bits 4 4 -> -> 1 `i `uc ]
-"88
-[; ;mcc_generated_files/dac1.c: 88:     DAC1REFL = (uint8_t) input16BitData;
-[e = _DAC1REFL -> _input16BitData `uc ]
-"89
-[; ;mcc_generated_files/dac1.c: 89:     DAC1REFH = (uint8_t)(input16BitData >> 8);
-[e = _DAC1REFH -> >> -> _input16BitData `ui -> 8 `i `uc ]
-"91
-[; ;mcc_generated_files/dac1.c: 91:     (DACLDbits.DAC1LD = 1);
-[e = . . _DACLDbits 0 0 -> -> 1 `i `uc ]
-"92
-[; ;mcc_generated_files/dac1.c: 92: }
-[e :UE 1732 ]
-}
-"94
-[; ;mcc_generated_files/dac1.c: 94: void DAC1_Load10bitInputData(uint16_t input10BitData)
-[v _DAC1_Load10bitInputData `(v ~T0 @X0 1 ef1`us ]
-"95
-[; ;mcc_generated_files/dac1.c: 95: {
-{
-[e :U _DAC1_Load10bitInputData ]
-"94
-[; ;mcc_generated_files/dac1.c: 94: void DAC1_Load10bitInputData(uint16_t input10BitData)
-[v _input10BitData `us ~T0 @X0 1 r1 ]
-"95
-[; ;mcc_generated_files/dac1.c: 95: {
-[f ]
-"98
-[; ;mcc_generated_files/dac1.c: 98:     DAC1CON0bits.DAC1FM = 0;
-[e = . . _DAC1CON0bits 4 4 -> -> 0 `i `uc ]
-"101
-[; ;mcc_generated_files/dac1.c: 101:     DAC1REFL = (uint8_t) input10BitData;
-[e = _DAC1REFL -> _input10BitData `uc ]
-"102
-[; ;mcc_generated_files/dac1.c: 102:     DAC1REFH = (uint8_t)(input10BitData >> 8);
-[e = _DAC1REFH -> >> -> _input10BitData `ui -> 8 `i `uc ]
-"104
-[; ;mcc_generated_files/dac1.c: 104:     (DACLDbits.DAC1LD = 1);
-[e = . . _DACLDbits 0 0 -> -> 1 `i `uc ]
-"105
-[; ;mcc_generated_files/dac1.c: 105: }
-[e :UE 1733 ]
-}
-"107
-[; ;mcc_generated_files/dac1.c: 107: void DAC1_Load8bitInputData(uint8_t input8BitData)
-[v _DAC1_Load8bitInputData `(v ~T0 @X0 1 ef1`uc ]
-"108
-[; ;mcc_generated_files/dac1.c: 108: {
-{
-[e :U _DAC1_Load8bitInputData ]
-"107
-[; ;mcc_generated_files/dac1.c: 107: void DAC1_Load8bitInputData(uint8_t input8BitData)
-[v _input8BitData `uc ~T0 @X0 1 r1 ]
-"108
-[; ;mcc_generated_files/dac1.c: 108: {
-[f ]
-"111
-[; ;mcc_generated_files/dac1.c: 111:     DAC1CON0bits.DAC1FM = 0;
-[e = . . _DAC1CON0bits 4 4 -> -> 0 `i `uc ]
-"114
-[; ;mcc_generated_files/dac1.c: 114:     DAC1REFL = input8BitData;
-[e = _DAC1REFL _input8BitData ]
-"116
-[; ;mcc_generated_files/dac1.c: 116:     (DACLDbits.DAC1LD = 1);
-[e = . . _DACLDbits 0 0 -> -> 1 `i `uc ]
-"117
-[; ;mcc_generated_files/dac1.c: 117: }
-[e :UE 1734 ]
-}
-"119
-[; ;mcc_generated_files/dac1.c: 119: uint16_t DAC1_Read10BitInputData(void) {
-[v _DAC1_Read10BitInputData `(us ~T0 @X0 1 ef ]
-{
-[e :U _DAC1_Read10BitInputData ]
-[f ]
-"121
-[; ;mcc_generated_files/dac1.c: 121:     DAC1CON0bits.DAC1FM = 0;
-[e = . . _DAC1CON0bits 4 4 -> -> 0 `i `uc ]
-"124
-[; ;mcc_generated_files/dac1.c: 124:     uint16_t data = ((uint16_t) DAC1REFH) << 8;
-[v _data `us ~T0 @X0 1 a ]
-[e = _data -> << -> -> _DAC1REFH `us `ui -> 8 `i `us ]
-"125
-[; ;mcc_generated_files/dac1.c: 125:     data |= ((uint16_t) DAC1REFL);
-[e =| _data -> -> _DAC1REFL `us `us ]
-"127
-[; ;mcc_generated_files/dac1.c: 127:     return data;
-[e ) _data ]
-[e $UE 1735  ]
-"128
-[; ;mcc_generated_files/dac1.c: 128: }
-[e :UE 1735 ]
 }
