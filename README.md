@@ -9,6 +9,8 @@
   - [ ] オーディオアンプあり版
 
 ### 2. SPI通信でフラッシュメモリ読み書き
+  - [ ] WAV形式のフォーマットを理解する
+  - [ ] [wav converter](https://online-audio-converter.com/ja/)
   - [ ] 071 MCCでUSARTを設定して使いたい
   - [ ] 074 MCCでSPIを設定して使いたい
   - [ ] 051 SPI接続の大容量フラッシュメモリを使いたい
