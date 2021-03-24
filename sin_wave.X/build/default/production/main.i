@@ -19388,9 +19388,9 @@ extern __bank0 __bit __timeout;
 # 50 "./mcc_generated_files/mcc.h" 2
 
 # 1 "./mcc_generated_files/pin_manager.h" 1
-# 90 "./mcc_generated_files/pin_manager.h"
+# 107 "./mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
-# 102 "./mcc_generated_files/pin_manager.h"
+# 119 "./mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_IOC(void);
 # 51 "./mcc_generated_files/mcc.h" 2
 
@@ -20339,11 +20339,14 @@ void main(void)
         Wave[n] = (unsigned int)(400.0 * sinf(3.14159265/180.0*((double)n*3.6)) + 511.0);
 
     Index = 0;
-    temp = 9;
-
+    temp = 120;
+    TMR2_Period8BitSet(temp);
     while (1)
     {
-        DAC1_Load10bitInputData(1000);
-# 92 "main.c"
+        while(PIR1bits.TMR2IF == 0);
+        PIR1bits.TMR2IF = 0;
+        DAC1_Load10bitInputData(Wave[Index++]);
+        if(Index > 99)
+            Index = 0;
     }
 }

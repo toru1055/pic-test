@@ -19391,9 +19391,9 @@ extern __bank0 __bit __timeout;
 # 50 "mcc_generated_files/mcc.h" 2
 
 # 1 "mcc_generated_files/pin_manager.h" 1
-# 90 "mcc_generated_files/pin_manager.h"
+# 107 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
-# 102 "mcc_generated_files/pin_manager.h"
+# 119 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_IOC(void);
 # 51 "mcc_generated_files/mcc.h" 2
 

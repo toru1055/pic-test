@@ -74,21 +74,15 @@ void main(void)
         Wave[n] = (unsigned int)(400.0 * sin(C*((double)n*3.6)) + 511.0);
     
     Index = 0;
-    temp = 9;
-//    TMR2_Period8BitSet(temp);
+    temp = 1201;
+    TMR2_Period8BitSet(temp);
     while (1)
     {
-        DAC1_Load10bitInputData(1000);
-//        while(PIR1bits.TMR2IF == 0);
-//        PIR1bits.TMR2IF = 0;
-//        DAC1_Load10bitInputData(Wave[Index++]);
-//        if(Index > 99)
-//            Index = 0;
-//        RA1 = 1;
-//        __delay_us(1908);
-//        RA1 = 0;
-//        __delay_us(1908);
-        // Add your application code
+        while(PIR1bits.TMR2IF == 0);
+        PIR1bits.TMR2IF = 0;
+        DAC1_Load10bitInputData(Wave[Index++]);
+        if(Index > 99)
+            Index = 0;
     }
 }
 /**

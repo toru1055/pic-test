@@ -122,7 +122,7 @@ TMR2_CLC4_OUT 29
 [v _TMR2_SetInterruptHandler TMR2_SetInterruptHandler `(v  1 e 1 0 ]
 "190
 [v _TMR2_DefaultInterruptHandler TMR2_DefaultInterruptHandler `(v  1 e 1 0 ]
-[s S602 . 1 `uc 1 IOCIF 1 0 :1:0 
+[s S584 . 1 `uc 1 IOCIF 1 0 :1:0 
 `uc 1 INTF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 IOCIE 1 0 :1:3 
@@ -132,13 +132,13 @@ TMR2_CLC4_OUT 29
 `uc 1 GIE 1 0 :1:7 
 ]
 "374 /Applications/microchip/mplabx/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8/pic/include/proc/pic16f1778.h
-[s S611 . 1 `uc 1 . 1 0 :2:0 
+[s S593 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 T0IE 1 0 :1:5 
 ]
-[u S616 . 1 `S602 1 . 1 0 `S611 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES616  1 e 1 @11 ]
+[u S598 . 1 `S584 1 . 1 0 `S593 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES598  1 e 1 @11 ]
 [s S123 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
@@ -405,7 +405,7 @@ TMR2_CLC4_OUT 29
 "53 /Users/thotta/MPLABXProjects/sin_wave.X/main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"93
+"87
 } 0
 "26 /Applications/microchip/xc8/v2.32/pic/sources/c99/common/sinf.c
 [v _sinf sinf `(f  1 e 4 0 ]
@@ -414,9 +414,9 @@ TMR2_CLC4_OUT 29
 [v sinf@ix ix `ul  1 a 4 73 ]
 "28
 [v sinf@y y `d  1 a 4 69 ]
-[u S998 . 4 `f 1 f 4 0 `l 1 s 4 0 `ul 1 u 4 0 ]
+[u S1015 . 4 `f 1 f 4 0 `l 1 s 4 0 `ul 1 u 4 0 ]
 "32
-[v sinf@__xc8_float_word __xc8_float_word `S998  1 a 4 51 ]
+[v sinf@__xc8_float_word __xc8_float_word `S1015  1 a 4 51 ]
 "29
 [v sinf@n n `l  1 a 4 47 ]
 "31
@@ -446,9 +446,9 @@ TMR2_CLC4_OUT 29
 [v ___rem_pio2f@t t `f  1 a 4 31 ]
 "47
 [v ___rem_pio2f@fn fn `d  1 a 4 27 ]
-[u S1043 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
+[u S1060 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
 "45
-[v ___rem_pio2f@u u `S1043  1 a 4 19 ]
+[v ___rem_pio2f@u u `S1060  1 a 4 19 ]
 "48
 [v ___rem_pio2f@ix ix `ul  1 a 4 13 ]
 "46
@@ -459,19 +459,19 @@ TMR2_CLC4_OUT 29
 [v ___rem_pio2f@x x `f  1 p 4 0 ]
 [v ___rem_pio2f@y y `*.4d  1 p 1 4 ]
 "44
-[v ___rem_pio2f@F533 F533 `S1043  1 s 4 F533 ]
+[v ___rem_pio2f@F533 F533 `S1060  1 s 4 F533 ]
 "94
 } 0
 "4 /Applications/microchip/xc8/v2.32/pic/sources/c99/common/fabsf.c
 [v _fabsf fabsf `(f  1 e 4 0 ]
 {
-[u S1043 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
+[u S1060 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
 "6
-[v fabsf@u u `S1043  1 a 4 4 ]
+[v fabsf@u u `S1060  1 a 4 4 ]
 "4
 [v fabsf@x x `f  1 p 4 0 ]
 "5
-[v fabsf@F465 F465 `S1043  1 s 4 F465 ]
+[v fabsf@F465 F465 `S1060  1 s 4 F465 ]
 "9
 } 0
 "10 /Applications/microchip/xc8/v2.32/pic/sources/c99/common/xxtofl.c
@@ -526,17 +526,17 @@ TMR2_CLC4_OUT 29
 "8 /Applications/microchip/xc8/v2.32/pic/sources/c99/common/sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S851 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S868 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S856 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
-[u S859 . 4 `l 1 i 4 0 `d 1 f 4 0 `S851 1 fAsBytes 4 0 `S856 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S859  1 a 4 20 ]
+[s S873 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
+[u S876 . 4 `l 1 i 4 0 `d 1 f 4 0 `S868 1 fAsBytes 4 0 `S873 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S876  1 a 4 20 ]
 "12
 [v ___flmul@grs grs `ul  1 a 4 14 ]
-[s S928 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[s S945 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S931 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S928 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S931  1 a 2 24 ]
+[u S948 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S945 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S948  1 a 2 24 ]
 "10
 [v ___flmul@bexp bexp `uc  1 a 1 19 ]
 "11
@@ -577,6 +577,15 @@ TMR2_CLC4_OUT 29
 [v ___fladd@b b `d  1 p 4 26 ]
 [v ___fladd@a a `d  1 p 4 30 ]
 "237
+} 0
+"155 /Users/thotta/MPLABXProjects/sin_wave.X/mcc_generated_files/tmr2.c
+[v _TMR2_Period8BitSet TMR2_Period8BitSet `(v  1 e 1 0 ]
+{
+[v TMR2_Period8BitSet@periodVal periodVal `uc  1 a 1 wreg ]
+[v TMR2_Period8BitSet@periodVal periodVal `uc  1 a 1 wreg ]
+"157
+[v TMR2_Period8BitSet@periodVal periodVal `uc  1 a 1 0 ]
+"158
 } 0
 "50 /Users/thotta/MPLABXProjects/sin_wave.X/mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
