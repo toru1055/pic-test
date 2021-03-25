@@ -15,7 +15,7 @@
 
 ### 3. フラッシュメモリから音声データを再生
   - [ ] WAV形式のフォーマットを理解する
-  - [ ] [wav converter](https://audio.online-convert.com/convert-to-wav): 8bit モノラルの1
+  - [ ] [wav converter](https://audio.online-convert.com/convert-to-wav): 8bit モノラルの1000Hzに変換
   - [ ] 104 WAVファイルをフラッシュメモリに書き込みたい
   - [ ] 103 WAVファイルの音楽を再生したい
 
