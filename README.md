@@ -14,9 +14,9 @@
   - [ ] 051 SPI接続の大容量フラッシュメモリを使いたい
 
 ### 3. フラッシュメモリから音声データを再生
-  - [ ] WAV形式のフォーマットを理解する
-  - [ ] `$ xxd 1164_8bit.wav | head`を見れば大体わかるが、データ部は80バイト目くらいからなので80バイトオフセットすれば良さそう
-  - [ ] [wav converter](https://audio.online-convert.com/convert-to-wav): 8bit モノラルの1000Hzに変換
+  - [x] WAV形式のフォーマットを理解する
+  - [x] `$ xxd 1164_8bit.wav | head`を見れば大体わかるが、データ部は80バイト目くらいからなので80バイトオフセットすれば良さそう
+  - [x] [wav converter](https://audio.online-convert.com/convert-to-wav): 8bit モノラルの1000Hzに変換
   - [ ] 104 WAVファイルをフラッシュメモリに書き込みたい
   - [ ] 103 WAVファイルの音楽を再生したい
 
