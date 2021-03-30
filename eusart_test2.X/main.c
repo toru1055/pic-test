@@ -70,8 +70,7 @@ void main(void)
     while (1)
     {
         // Add your application code
-        //printf("\nCommand = ");
-        putch('a');
+        printf("\r\nCommand = ");
         cmd = getch();
         putch(cmd);
         if((cmd >= 'a') && (cmd <= 'z'))
@@ -79,7 +78,7 @@ void main(void)
         else if((cmd >= '0') && (cmd <= '9'))
             printf("  Receive Number");
         else
-            printf("  Receive???");
+            printf("  ???");
     }
 }
 /**
