@@ -14,7 +14,7 @@
     This header file provides implementations for driver APIs for all modules selected in the GUI.
     Generation Information :
         Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.81.7
-        Device            :  PIC16F1788
+        Device            :  PIC16F1778
         Driver Version    :  2.00
 */
 
@@ -42,7 +42,6 @@
 */
 
 #include "mcc_generated_files/mcc.h"
-
 uint8_t cmd;
 
 /*
@@ -71,7 +70,8 @@ void main(void)
     while (1)
     {
         // Add your application code
-        printf("\nCommand = ");
+        //printf("\nCommand = ");
+        putch('a');
         cmd = getch();
         putch(cmd);
         if((cmd >= 'a') && (cmd <= 'z'))

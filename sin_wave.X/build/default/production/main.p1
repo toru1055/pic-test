@@ -1749,8 +1749,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 76:     Index = 0;
 [e = _Index -> -> 0 `i `us ]
 "77
-[; ;main.c: 77:     temp = 120;
-[e = _temp -> -> 120 `i `us ]
+[; ;main.c: 77:     temp = 1201;
+[e = _temp -> -> 1201 `i `us ]
 "78
 [; ;main.c: 78:     TMR2_Period8BitSet(temp);
 [e ( _TMR2_Period8BitSet (1 -> _temp `uc ]

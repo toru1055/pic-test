@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=/Applications/microchip/xc8/v2.32/pic/dat/en_msgs.txt -cn \
   -h+dist/default/production/sin_wave.X.production.sym \
   --cmf=dist/default/production/sin_wave.X.production.cmf -z -Q16F1778 \
-  -o/tmp/xcV2eTxfC --defsym=__MPLAB_BUILD=1 \
+  -o/tmp/xclFS7rfT --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/sin_wave.X.production.map -E1 -ver=XC8 Compiler \
   --acfsm=1493 -ASTACK=020BEh-023EFh -pstack=STACK -ACODE=00h-07FFhx8 \
   -ASTRCODE=00h-03FFFh -ASTRING=00h-0FFhx64 -ACONST=00h-0FFhx64 \
@@ -34,7 +34,7 @@ Linker command line:
   -ASFR31=0F80h-0FEFh -ACONFIG=08007h-08008h -DCONFIG=2 \
   -AIDLOC=08000h-08003h -DIDLOC=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 \
   -DENTRY=2 -preset_vec=00h,intentry=04h,init,end_init -ppowerup=CODE \
-  -pcinit=CODE -pfunctab=ENTRY -k /tmp/xcwNaQek9.o \
+  -pcinit=CODE -pfunctab=ENTRY -k /tmp/xcFr8CLUz.o \
   dist/default/production/sin_wave.X.production.o 
 
 Object code version is 3.11
@@ -44,7 +44,7 @@ Machine type is 16F1778
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-/tmp/xcwNaQek9.o
+/tmp/xcFr8CLUz.o
                 end_init                             19       19        2        8       0
                 reset_vec                             0        0        2        0       0
                 config                             8007     8007        2        0       4

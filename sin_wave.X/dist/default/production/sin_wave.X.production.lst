@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.32 build 20210201212658 
-                                                                                               Wed Mar 24 15:48:22 2021
+                                                                                               Tue Mar 30 14:14:29 2021
 
 Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1 
      1                           	processor	16F1778
@@ -5059,15 +5059,15 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   5036  0951  01BB               	clrf	(_Index+1)^(0+256)
   5037  0952                     l2466:
   5038                           
-  5039                           ;main.c: 77:     temp = 120;
-  5040  0952  3078               	movlw	120
+  5039                           ;main.c: 77:     temp = 1201;
+  5040  0952  30B1               	movlw	177
   5041  0953  00B8               	movwf	_temp^(0+256)
-  5042  0954  3000               	movlw	0
+  5042  0954  3004               	movlw	4
   5043  0955  00B9               	movwf	(_temp^(0+256)+1)
   5044  0956                     l2468:
   5045                           
   5046                           ;main.c: 78:     TMR2_Period8BitSet(temp);
-  5047  0956  3078               	movlw	120
+  5047  0956  30B1               	movlw	177
   5048  0957  3196  2608  3188   	fcall	_TMR2_Period8BitSet
   5049  095A                     l250:
   5050  095A  0020               	movlb	0	; select bank0
@@ -10631,8 +10631,8 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
  10514  07D3  008C               	movwf	12	;volatile
  10515  07D4                     l2182:
  10516                           
- 10517                           ;mcc_generated_files/pin_manager.c: 69:     TRISB = 0xFD;
- 10518  07D4  30FD               	movlw	253
+ 10517                           ;mcc_generated_files/pin_manager.c: 69:     TRISB = 0xFF;
+ 10518  07D4  30FF               	movlw	255
  10519  07D5  008D               	movwf	13	;volatile
  10520  07D6                     l2184:
  10521                           
@@ -11883,7 +11883,7 @@ BANK25               0      0       0      58        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.32 build 20210201212658 
-Symbol Table                                                                                   Wed Mar 24 15:48:22 2021
+Symbol Table                                                                                   Tue Mar 30 14:14:29 2021
 
         __end_of_TMR2_SetInterruptHandler 07FF                                         _n 013C  
                                       _C0 1830                                        _C1 182C  
