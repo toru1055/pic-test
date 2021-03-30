@@ -73,12 +73,12 @@ void main(void)
         printf("\r\nCommand = ");
         cmd = getch();
         putch(cmd);
-        if((cmd >= 'a') && (cmd <= 'z'))
-            printf("  Receive Alphabet");
-        else if((cmd >= '0') && (cmd <= '9'))
-            printf("  Receive Number");
-        else
-            printf("  ???");
+//        if((cmd >= 'a') && (cmd <= 'z'))
+//            printf("  Receive Alphabet");
+//        else if((cmd >= '0') && (cmd <= '9'))
+//            printf("  Receive Number");
+//        else
+//            printf("  ???");
     }
 }
 /**
