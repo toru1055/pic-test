@@ -19,6 +19,7 @@
   - [x] `$ xxd 1164_8bit.wav | head`を見れば大体わかるが、データ部は80バイト目くらいからなので80バイトオフセットすれば良さそう
   - [x] [wav converter](https://audio.online-convert.com/convert-to-wav): 8bit モノラルの1000Hzに変換
   - [ ] 104 WAVファイルをフラッシュメモリに書き込みたい
+    - [ ] https://qiita.com/miminashi/items/4028eb2365cc23efa02d
   - [ ] 103 WAVファイルの音楽を再生したい
 
 ### 4. ボタン割り込み制御：ボタンを押したら対応する音声ファイルを割り込み再生
