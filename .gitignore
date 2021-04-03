@@ -2,3 +2,5 @@
 /usart_test1.X/dist/
 /eusart_test2.X/build/
 /eusart_test2.X/dist/
+/spi_flash.X/dist/
+/spi_flash.X/build/
