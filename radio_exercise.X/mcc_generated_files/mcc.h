@@ -53,9 +53,10 @@
 #include <stdbool.h>
 #include <conio.h>
 #include "interrupt_manager.h"
+#include "opa1.h"
 #include "dac1.h"
 #include "tmr2.h"
-#include "opa1.h"
+#include "eusart.h"
 
 
 
