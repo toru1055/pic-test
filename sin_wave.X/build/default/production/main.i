@@ -19388,9 +19388,9 @@ extern __bank0 __bit __timeout;
 # 50 "./mcc_generated_files/mcc.h" 2
 
 # 1 "./mcc_generated_files/pin_manager.h" 1
-# 107 "./mcc_generated_files/pin_manager.h"
+# 90 "./mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
-# 119 "./mcc_generated_files/pin_manager.h"
+# 102 "./mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_IOC(void);
 # 51 "./mcc_generated_files/mcc.h" 2
 
@@ -20339,7 +20339,7 @@ void main(void)
         Wave[n] = (unsigned int)(400.0 * sinf(3.14159265/180.0*((double)n*3.6)) + 511.0);
 
     Index = 0;
-    temp = 120;
+    temp = 1201;
     TMR2_Period8BitSet(temp);
     while (1)
     {

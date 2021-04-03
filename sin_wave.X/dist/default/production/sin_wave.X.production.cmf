@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$/tmp/xcwNaQek9.o
+$/tmp/xcFr8CLUz.o
 reset_vec CODE 0 0 0 2 2
 end_init CODE 0 19 19 2 2
 config CONFIG 4 8007 8007 2 2
@@ -184,30 +184,30 @@ STRING 1844-3FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production/sin_wave.X.production.o
-1B cinit CODE >8373:/tmp/xcHz2BYkn.s
-1B cinit CODE >8376:/tmp/xcHz2BYkn.s
-1B cinit CODE >8419:/tmp/xcHz2BYkn.s
-1C cinit CODE >8420:/tmp/xcHz2BYkn.s
-1D cinit CODE >8421:/tmp/xcHz2BYkn.s
-1E cinit CODE >8422:/tmp/xcHz2BYkn.s
-1F cinit CODE >8423:/tmp/xcHz2BYkn.s
-20 cinit CODE >8424:/tmp/xcHz2BYkn.s
-21 cinit CODE >8425:/tmp/xcHz2BYkn.s
-22 cinit CODE >8426:/tmp/xcHz2BYkn.s
-23 cinit CODE >8427:/tmp/xcHz2BYkn.s
-26 cinit CODE >8431:/tmp/xcHz2BYkn.s
-27 cinit CODE >8432:/tmp/xcHz2BYkn.s
-28 cinit CODE >8433:/tmp/xcHz2BYkn.s
-29 cinit CODE >8434:/tmp/xcHz2BYkn.s
-2A cinit CODE >8435:/tmp/xcHz2BYkn.s
-2B cinit CODE >8436:/tmp/xcHz2BYkn.s
-2C cinit CODE >8437:/tmp/xcHz2BYkn.s
-2D cinit CODE >8438:/tmp/xcHz2BYkn.s
-2E cinit CODE >8439:/tmp/xcHz2BYkn.s
-31 cinit CODE >8445:/tmp/xcHz2BYkn.s
-31 cinit CODE >8447:/tmp/xcHz2BYkn.s
-32 cinit CODE >8448:/tmp/xcHz2BYkn.s
-33 cinit CODE >8449:/tmp/xcHz2BYkn.s
+1B cinit CODE >8373:/tmp/xcRSw7ofO.s
+1B cinit CODE >8376:/tmp/xcRSw7ofO.s
+1B cinit CODE >8419:/tmp/xcRSw7ofO.s
+1C cinit CODE >8420:/tmp/xcRSw7ofO.s
+1D cinit CODE >8421:/tmp/xcRSw7ofO.s
+1E cinit CODE >8422:/tmp/xcRSw7ofO.s
+1F cinit CODE >8423:/tmp/xcRSw7ofO.s
+20 cinit CODE >8424:/tmp/xcRSw7ofO.s
+21 cinit CODE >8425:/tmp/xcRSw7ofO.s
+22 cinit CODE >8426:/tmp/xcRSw7ofO.s
+23 cinit CODE >8427:/tmp/xcRSw7ofO.s
+26 cinit CODE >8431:/tmp/xcRSw7ofO.s
+27 cinit CODE >8432:/tmp/xcRSw7ofO.s
+28 cinit CODE >8433:/tmp/xcRSw7ofO.s
+29 cinit CODE >8434:/tmp/xcRSw7ofO.s
+2A cinit CODE >8435:/tmp/xcRSw7ofO.s
+2B cinit CODE >8436:/tmp/xcRSw7ofO.s
+2C cinit CODE >8437:/tmp/xcRSw7ofO.s
+2D cinit CODE >8438:/tmp/xcRSw7ofO.s
+2E cinit CODE >8439:/tmp/xcRSw7ofO.s
+31 cinit CODE >8445:/tmp/xcRSw7ofO.s
+31 cinit CODE >8447:/tmp/xcRSw7ofO.s
+32 cinit CODE >8448:/tmp/xcRSw7ofO.s
+33 cinit CODE >8449:/tmp/xcRSw7ofO.s
 4 intentry CODE >52:/Users/thotta/MPLABXProjects/sin_wave.X/mcc_generated_files/interrupt_manager.c
 6 intentry CODE >55:/Users/thotta/MPLABXProjects/sin_wave.X/mcc_generated_files/interrupt_manager.c
 A intentry CODE >57:/Users/thotta/MPLABXProjects/sin_wave.X/mcc_generated_files/interrupt_manager.c
@@ -710,20 +710,20 @@ AE text1 CODE >21:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/sinf.
 980 maintext CODE >84:/Users/thotta/MPLABXProjects/sin_wave.X/main.c
 982 maintext CODE >84:/Users/thotta/MPLABXProjects/sin_wave.X/main.c
 986 maintext CODE >85:/Users/thotta/MPLABXProjects/sin_wave.X/main.c
-163F clrtext CODE >8402:/tmp/xcHz2BYkn.s
-163F clrtext CODE >8403:/tmp/xcHz2BYkn.s
-1640 clrtext CODE >8404:/tmp/xcHz2BYkn.s
-1640 clrtext CODE >8405:/tmp/xcHz2BYkn.s
-1641 clrtext CODE >8406:/tmp/xcHz2BYkn.s
-1642 clrtext CODE >8407:/tmp/xcHz2BYkn.s
-1643 clrtext CODE >8408:/tmp/xcHz2BYkn.s
-1644 clrtext CODE >8409:/tmp/xcHz2BYkn.s
-1645 clrtext CODE >8410:/tmp/xcHz2BYkn.s
-1646 clrtext CODE >8411:/tmp/xcHz2BYkn.s
-1647 clrtext CODE >8412:/tmp/xcHz2BYkn.s
-1648 clrtext CODE >8413:/tmp/xcHz2BYkn.s
-1649 clrtext CODE >8414:/tmp/xcHz2BYkn.s
-164A clrtext CODE >8415:/tmp/xcHz2BYkn.s
+163F clrtext CODE >8402:/tmp/xcRSw7ofO.s
+163F clrtext CODE >8403:/tmp/xcRSw7ofO.s
+1640 clrtext CODE >8404:/tmp/xcRSw7ofO.s
+1640 clrtext CODE >8405:/tmp/xcRSw7ofO.s
+1641 clrtext CODE >8406:/tmp/xcRSw7ofO.s
+1642 clrtext CODE >8407:/tmp/xcRSw7ofO.s
+1643 clrtext CODE >8408:/tmp/xcRSw7ofO.s
+1644 clrtext CODE >8409:/tmp/xcRSw7ofO.s
+1645 clrtext CODE >8410:/tmp/xcRSw7ofO.s
+1646 clrtext CODE >8411:/tmp/xcRSw7ofO.s
+1647 clrtext CODE >8412:/tmp/xcRSw7ofO.s
+1648 clrtext CODE >8413:/tmp/xcRSw7ofO.s
+1649 clrtext CODE >8414:/tmp/xcRSw7ofO.s
+164A clrtext CODE >8415:/tmp/xcRSw7ofO.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -758,12 +758,12 @@ _WPUB 20D 0 ABS 0 - dist/default/production/sin_wave.X.production.o
 _WPUC 20E 0 ABS 0 - dist/default/production/sin_wave.X.production.o
 _WPUE 210 0 ABS 0 - dist/default/production/sin_wave.X.production.o
 _Wave 2728 0 ABS 1 - dist/default/production/sin_wave.X.production.o
-___sp 0 0 STACK 2 stack /tmp/xcwNaQek9.o
+___sp 0 0 STACK 2 stack /tmp/xcFr8CLUz.o
 _main 10E4 0 CODE 0 maintext dist/default/production/sin_wave.X.production.o
 _sinf 6A 0 CODE 0 text1 dist/default/production/sin_wave.X.production.o
 _temp 138 0 BANK2 1 bssBANK2 dist/default/production/sin_wave.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production/sin_wave.X.production.o
-start 32 0 CODE 0 init /tmp/xcwNaQek9.o
+start 32 0 CODE 0 init /tmp/xcFr8CLUz.o
 ___flmul@aexp 32 0 BANK0 1 cstackBANK0 dist/default/production/sin_wave.X.production.o
 ___flmul@bexp 33 0 BANK0 1 cstackBANK0 dist/default/production/sin_wave.X.production.o
 ___flmul@prod 34 0 BANK0 1 cstackBANK0 dist/default/production/sin_wave.X.production.o
@@ -801,12 +801,12 @@ _TMR2_Initialize 2CBC 0 CODE 0 text16 dist/default/production/sin_wave.X.product
 _DAC1_Load10bitInputData 2C26 0 CODE 0 text22 dist/default/production/sin_wave.X.production.o
 __size_of_SYSTEM_Initialize 0 0 ABS 0 - dist/default/production/sin_wave.X.production.o
 __end_of_DAC1_Load10bitInputData 2C36 0 CODE 0 text22 dist/default/production/sin_wave.X.production.o
-intlevel0 0 0 ENTRY 0 functab /tmp/xcwNaQek9.o
-intlevel1 0 0 ENTRY 0 functab /tmp/xcwNaQek9.o
-intlevel2 0 0 ENTRY 0 functab /tmp/xcwNaQek9.o
-intlevel3 0 0 ENTRY 0 functab /tmp/xcwNaQek9.o
-intlevel4 0 0 ENTRY 0 functab /tmp/xcwNaQek9.o
-intlevel5 0 0 ENTRY 0 functab /tmp/xcwNaQek9.o
+intlevel0 0 0 ENTRY 0 functab /tmp/xcFr8CLUz.o
+intlevel1 0 0 ENTRY 0 functab /tmp/xcFr8CLUz.o
+intlevel2 0 0 ENTRY 0 functab /tmp/xcFr8CLUz.o
+intlevel3 0 0 ENTRY 0 functab /tmp/xcFr8CLUz.o
+intlevel4 0 0 ENTRY 0 functab /tmp/xcFr8CLUz.o
+intlevel5 0 0 ENTRY 0 functab /tmp/xcFr8CLUz.o
 wtemp0 7E 0 ABS 0 - dist/default/production/sin_wave.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
 _OPA1_Initialize 2C46 0 CODE 0 text20 dist/default/production/sin_wave.X.production.o
@@ -842,8 +842,8 @@ _INLVLA 38C 0 ABS 0 - dist/default/production/sin_wave.X.production.o
 _INLVLB 38D 0 ABS 0 - dist/default/production/sin_wave.X.production.o
 _INLVLC 38E 0 ABS 0 - dist/default/production/sin_wave.X.production.o
 __Umul8_16@multiplicand 70 0 COMMON 1 cstackCOMMON dist/default/production/sin_wave.X.production.o
-___stackhi 23EF 0 ABS 0 - /tmp/xcwNaQek9.o
-___stacklo 20BE 0 ABS 0 - /tmp/xcwNaQek9.o
+___stackhi 23EF 0 ABS 0 - /tmp/xcFr8CLUz.o
+___stacklo 20BE 0 ABS 0 - /tmp/xcFr8CLUz.o
 _DAC1_Initialize 2C36 0 CODE 0 text21 dist/default/production/sin_wave.X.production.o
 __size_of_fabsf 0 0 ABS 0 - dist/default/production/sin_wave.X.production.o
 ___fladd@a 3E 0 BANK0 1 cstackBANK0 dist/default/production/sin_wave.X.production.o
@@ -892,7 +892,7 @@ __end_of_s2pio2 3080 0 STRCODE 0 stringtext16 dist/default/production/sin_wave.X
 __end_of_s3pio2 3078 0 STRCODE 0 stringtext15 dist/default/production/sin_wave.X.production.o
 __end_of_s4pio2 3070 0 STRCODE 0 stringtext14 dist/default/production/sin_wave.X.production.o
 _WDTCON 99 0 ABS 0 - dist/default/production/sin_wave.X.production.o
-___int_sp 0 0 STACK 2 stack /tmp/xcwNaQek9.o
+___int_sp 0 0 STACK 2 stack /tmp/xcFr8CLUz.o
 __end_of_invpio2 3038 0 STRCODE 0 stringtext7 dist/default/production/sin_wave.X.production.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
@@ -1073,7 +1073,7 @@ _TMR2_DefaultInterruptHandler FFE 0 CODE 0 text26 dist/default/production/sin_wa
 _TMR2_CallBack 1000 0 CODE 0 text25 dist/default/production/sin_wave.X.production.o
 __HnvBANK0 0 0 ABS 0 nvBANK0 -
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec /tmp/xcwNaQek9.o
+reset_vec 0 0 CODE 0 reset_vec /tmp/xcFr8CLUz.o
 __end_of___xxtofl F96 0 CODE 0 text5 dist/default/production/sin_wave.X.production.o
 ___rem_pio2f@n C3 0 BANK1 1 cstackBANK1 dist/default/production/sin_wave.X.production.o
 ___rem_pio2f@t BF 0 BANK1 1 cstackBANK1 dist/default/production/sin_wave.X.production.o

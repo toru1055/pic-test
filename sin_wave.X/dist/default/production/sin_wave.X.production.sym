@@ -565,7 +565,7 @@ stringtext1 3000 3087 STRCODE 3000 0
 text15 2C08 2C0F CODE 2C08 0
 %locals
 dist/default/production/sin_wave.X.production.o
-/tmp/xcHz2BYkn.s
+/tmp/xcRSw7ofO.s
 8373 1B 0 CODE 0
 8376 1B 0 CODE 0
 8419 1B 0 CODE 0
