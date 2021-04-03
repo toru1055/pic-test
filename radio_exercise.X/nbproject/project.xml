@@ -6,9 +6,9 @@
             <name>radio_exercise</name>
             <creation-uuid>fa0e30de-364f-46c7-a328-2ba64231bc6f</creation-uuid>
             <make-project-type>0</make-project-type>
-            <c-extensions/>
+            <c-extensions>c</c-extensions>
             <cpp-extensions/>
-            <header-extensions/>
+            <header-extensions>h</header-extensions>
             <asminc-extensions/>
             <sourceEncoding>UTF-8</sourceEncoding>
             <make-dep-projects/>
