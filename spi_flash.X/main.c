@@ -42,6 +42,38 @@
 */
 
 #include "mcc_generated_files/mcc.h"
+void CS_SetLow() {
+    RB1 = 0;
+}
+void CS_SetHigh() {
+    RB1 = 1;
+}
+void SendAdrs(uint32_t address) {
+    SPI_ExchangeByte((uint8_t)(address>>16));
+    SPI_ExchangeByte((uint8_t)(address>>8));
+    SPI_ExchangeByte((uint8_t)(address));
+}
+uint8_t SPIFlashByteRead(uint32_t address) {
+    uint8_t data;
+    CS_SetLow();
+    SPI_ExchangeByte(0x03);
+    SendAdrs(address);
+    data = SPI_ExchangeByte(0xAA);
+    CS_SetHigh();
+    return data;
+}
+
+void SPIFlashByteWrite(uint32_t address, uint8_t data) {
+    CS_SetLow();
+    SPI_ExchangeByte(0x06); // Write Enable
+    CS_SetHigh();
+    CS_SetLow();
+    SPI_ExchangeByte(0x02);
+    SendAdrs(address);
+    SPI_ExchangeByte(data);
+    CS_SetHigh();
+    __delay_ms(2);
+}
 
 /*
                          Main application
