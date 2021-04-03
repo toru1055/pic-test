@@ -75,11 +75,36 @@ void SPIFlashByteWrite(uint32_t address, uint8_t data) {
     __delay_ms(2);
 }
 
+void SPIFlashErase(void) {
+    CS_SetLow();
+    SPI_ExchangeByte(0x06);
+    CS_SetHigh();
+    __delay_ms(25);
+    CS_SetLow();
+    SPI_ExchangeByte(0xC7);
+    CS_SetHigh();
+    __delay_ms(50);
+}
+
+void SPIFlashUnprotect(void) {
+    uint8_t i;
+    CS_SetLow();
+    SPI_ExchangeByte(0x42);
+    for(i=0; i < 18; i++) {
+        SPI_ExchangeByte(0x00);
+    }
+    CS_SetHigh();
+    __delay_ms(25);
+}
+
 /*
                          Main application
  */
 void main(void)
 {
+    uint32_t address = 1;
+    uint8_t data;
+    
     // initialize the device
     SYSTEM_Initialize();
 
@@ -97,15 +122,42 @@ void main(void)
 
     // Disable the Peripheral Interrupts
     //INTERRUPT_PeripheralInterruptDisable();
-
+    RB5 = 1;
+    __delay_ms(2000);
+    RB5 = 0;
+    __delay_ms(1000);
+    
+    SPI_Open(SPI_DEFAULT);
+    SPIFlashUnprotect();
+    SPIFlashErase();
+    
+    for (uint32_t i = 1; i < 256; i++) {
+        SPIFlashByteWrite(i, (uint8_t)i);
+    }
+    RB5 = 0;
+    __delay_ms(1000);
+    RB5 = 1;
+    __delay_ms(1000);
+    RB5 = 0;
+    __delay_ms(3000);
     while (1)
     {
+        data = SPIFlashByteRead(address++);
+        
         // Add your application code
-        RB5 = 1;
-        __delay_ms(1000);
-        RB5 = 0;
-        __delay_ms(1000);
+        
+        for(uint8_t i = 0; i < data; i++) {
+            RB5 = 1;
+            __delay_ms(200);
+            RB5 = 0;
+            __delay_ms(200);
+        }
+        __delay_ms(5000);
+        
+        if (address >= 255)
+            address = 1;
     }
+    SPI_Close();
 }
 /**
  End of File
