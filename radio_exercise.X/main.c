@@ -42,33 +42,101 @@
 */
 
 #include "mcc_generated_files/mcc.h"
+void CS_SetLow() {
+    RB1 = 0;
+}
+void CS_SetHigh() {
+    RB1 = 1;
+}
+void SendAdrs(uint32_t address) {
+    SPI_ExchangeByte((uint8_t)(address>>16));
+    SPI_ExchangeByte((uint8_t)(address>>8));
+    SPI_ExchangeByte((uint8_t)(address));
+}
+uint8_t SPIFlashByteRead(uint32_t address) {
+    uint8_t data;
+    CS_SetLow();
+    SPI_ExchangeByte(0x03);
+    SendAdrs(address);
+    data = SPI_ExchangeByte(0xAA);
+    CS_SetHigh();
+    return data;
+}
+
+void SPIFlashByteWrite(uint32_t address, uint8_t data) {
+    CS_SetLow();
+    SPI_ExchangeByte(0x06); // Write Enable
+    CS_SetHigh();
+    CS_SetLow();
+    SPI_ExchangeByte(0x02);
+    SendAdrs(address);
+    SPI_ExchangeByte(data);
+    CS_SetHigh();
+    __delay_ms(2);
+}
+
+void SPIFlashErase(void) {
+    CS_SetLow();
+    SPI_ExchangeByte(0x06);
+    CS_SetHigh();
+    __delay_ms(25);
+    CS_SetLow();
+    SPI_ExchangeByte(0xC7);
+    CS_SetHigh();
+    __delay_ms(50);
+}
+
+void SPIFlashUnprotect(void) {
+    uint8_t i;
+    CS_SetLow();
+    SPI_ExchangeByte(0x42);
+    for(i=0; i < 18; i++) {
+        SPI_ExchangeByte(0x00);
+    }
+    CS_SetHigh();
+    __delay_ms(25);
+}
+
+void save_music(void) {
+    uint8_t data;
+    uint32_t address = 0;
+    SPI_Open(SPI_DEFAULT);
+    SPIFlashUnprotect();
+    SPIFlashErase();
+    while(1) {
+        data = getch();
+        SPIFlashByteWrite(address++, data);
+    }
+    SPI_Close();
+}
+
+void play_music(void) {
+    uint8_t data;
+    uint32_t address = 0;
+    SPI_Open(SPI_DEFAULT);
+    while(1) {
+        while(PIR1bits.TMR2IF == 0);
+        PIR1bits.TMR2IF = 0;
+        data = SPIFlashByteRead(address++);
+        DAC1_Load10bitInputData(data);
+        if (address >= 60000) {
+            address = 0;
+            __delay_ms(1000);
+        }
+    }
+    SPI_Close();
+}
 
 /*
                          Main application
  */
 void main(void)
 {
-    // initialize the device
     SYSTEM_Initialize();
-
-    // When using interrupts, you need to set the Global and Peripheral Interrupt Enable bits
-    // Use the following macros to:
-
-    // Enable the Global Interrupts
-    //INTERRUPT_GlobalInterruptEnable();
-
-    // Enable the Peripheral Interrupts
-    //INTERRUPT_PeripheralInterruptEnable();
-
-    // Disable the Global Interrupts
-    //INTERRUPT_GlobalInterruptDisable();
-
-    // Disable the Peripheral Interrupts
-    //INTERRUPT_PeripheralInterruptDisable();
-
-    while (1)
-    {
-        // Add your application code
+    if (RC0) {
+        save_music();
+    } else {
+        play_music();
     }
 }
 /**
