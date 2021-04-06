@@ -104,6 +104,7 @@ void save_music(void) {
     SPIFlashUnprotect();
     SPIFlashErase();
     while(1) {
+        RB5 = 0;
         data = getch();
         SPIFlashByteWrite(address++, data);
     }
@@ -115,6 +116,7 @@ void play_music(void) {
     uint32_t address = 0;
     SPI_Open(SPI_DEFAULT);
     while(1) {
+        RB5 = 1;
         while(PIR1bits.TMR2IF == 0);
         PIR1bits.TMR2IF = 0;
         data = SPIFlashByteRead(address++);
