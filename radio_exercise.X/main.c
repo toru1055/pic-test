@@ -85,6 +85,21 @@ void SPIFlashByteWrite(uint32_t address, uint8_t data) {
     __delay_ms(2);
 }
 
+void SPIFlashWriteOpen(uint32_t address) {
+    CS_SetLow();
+    SPI_ExchangeByte(0x06); // Write Enable
+    CS_SetHigh();
+    CS_SetLow();
+    SPI_ExchangeByte(0x02);
+    SendAdrs(address);
+}
+void SPIFlashWriteClose(void) {
+    CS_SetHigh();
+}
+void SPIFlashWrite2(uint8_t data) {
+    SPI_ExchangeByte(data);
+}
+
 void SPIFlashErase(void) {
     CS_SetLow();
     SPI_ExchangeByte(0x06);
@@ -113,12 +128,18 @@ void save_music(void) {
     SPI_Open(SPI_DEFAULT);
     SPIFlashUnprotect();
     SPIFlashErase();
+    SPIFlashWriteOpen(0);
     while(1) {
-        RB5 = 0;
+        if (RC0) {
+            SPIFlashWriteClose();
+            printf("Closed");
+            break;
+        }
+        RB5 = 1;
         data = getch();
-        SPIFlashByteWrite(address++, data);
-        if (address % 1000 == 0) {
-            printf("%d\r\n", address);
+        SPIFlashWrite2(data);
+        if (address++ % 1000 == 0) {
+            printf("%u\r\n", address);
         }
     }
     SPI_Close();
