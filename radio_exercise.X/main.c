@@ -62,7 +62,17 @@ uint8_t SPIFlashByteRead(uint32_t address) {
     CS_SetHigh();
     return data;
 }
-
+void SPIFlashReadOpen(uint32_t address) {
+    CS_SetLow();
+    SPI_ExchangeByte(0x03);
+    SendAdrs(address);
+}
+void SPIFlashReadClose(void) {
+    CS_SetHigh();
+}
+uint8_t SPIFlashByteRead2(void) {
+    return SPI_ExchangeByte(0xAA);
+}
 void SPIFlashByteWrite(uint32_t address, uint8_t data) {
     CS_SetLow();
     SPI_ExchangeByte(0x06); // Write Enable
@@ -115,19 +125,22 @@ void save_music(void) {
 }
 
 void play_music(void) {
-    uint32_t data;
-    uint32_t address = 80;
+    uint8_t data;
+    uint32_t counter = 0;
     SPI_Open(SPI_DEFAULT);
+    SPIFlashReadOpen(80);
     while(1) {
         while(PIR1bits.TMR2IF == 0);
         PIR1bits.TMR2IF = 0;
-        data = SPIFlashByteRead(address++);
+        data = SPIFlashByteRead2();
         DAC1_Load10bitInputData(data);
-        if (address >= 7000) {
-            address = 80;
+        if (counter++ >= 7000) {
+            counter = 0;
+            SPIFlashReadClose();
             RB5 = 1;
             __delay_ms(3000);
             RB5 = 0;
+            SPIFlashReadOpen(80);
         }
         //printf("%d\r\n", data);
     }
