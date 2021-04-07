@@ -107,7 +107,7 @@ void save_music(void) {
         RB5 = 0;
         data = getch();
         SPIFlashByteWrite(address++, data);
-        if (address % 100 == 0) {
+        if (address % 1000 == 0) {
             printf("%d\r\n", address);
         }
     }
@@ -115,19 +115,21 @@ void save_music(void) {
 }
 
 void play_music(void) {
-    uint8_t data;
-    uint32_t address = 0;
+    uint32_t data;
+    uint32_t address = 80;
     SPI_Open(SPI_DEFAULT);
     while(1) {
-        RB5 = 1;
-        if (address >= 6000) {
-            address = 0;
-            __delay_ms(1000);
-        }
         while(PIR1bits.TMR2IF == 0);
         PIR1bits.TMR2IF = 0;
-        data = SPIFlashByteRead(address++ + 50);
+        data = SPIFlashByteRead(address++);
         DAC1_Load10bitInputData(data);
+        if (address >= 7000) {
+            address = 80;
+            RB5 = 1;
+            __delay_ms(3000);
+            RB5 = 0;
+        }
+        //printf("%d\r\n", data);
     }
     SPI_Close();
 }
