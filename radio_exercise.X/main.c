@@ -104,7 +104,7 @@ void SPIFlashErase(void) {
     CS_SetLow();
     SPI_ExchangeByte(0x06);
     CS_SetHigh();
-    __delay_ms(25);
+    __delay_ms(50);
     CS_SetLow();
     SPI_ExchangeByte(0xC7);
     CS_SetHigh();
@@ -114,25 +114,31 @@ void SPIFlashErase(void) {
 void SPIFlashUnprotect(void) {
     uint8_t i;
     CS_SetLow();
+    SPI_ExchangeByte(0x06);
+    CS_SetHigh();
+    __delay_ms(50);
+    CS_SetLow();
     SPI_ExchangeByte(0x42);
     for(i=0; i < 18; i++) {
         SPI_ExchangeByte(0x00);
     }
     CS_SetHigh();
-    __delay_ms(25);
+    __delay_ms(50);
 }
 
 void save_music(void) {
     uint8_t data;
     uint32_t address = 0;
     SPI_Open(SPI_DEFAULT);
+    CS_SetHigh();
     SPIFlashUnprotect();
     SPIFlashErase();
     SPIFlashWriteOpen(0);
     while(1) {
-        if (RC0) {
+        if (address > 0 && RC0) {
             SPIFlashWriteClose();
             printf("Closed");
+            RB5 = 0;
             break;
         }
         RB5 = 1;
@@ -144,18 +150,36 @@ void save_music(void) {
     }
     SPI_Close();
 }
+void save_music_old(void) {
+    uint8_t data;
+    uint32_t address = 0;
+    SPI_Open(SPI_DEFAULT);
+    CS_SetHigh();
+    SPIFlashUnprotect();
+    SPIFlashErase();
+    while(1) {
+        RB5 = 1;
+        data = getch();
+        SPIFlashByteWrite(address++, data);
+//        if (address % 1000 == 0) {
+//            printf("address=%u, data=%x\r\n", address, data);
+//        }
+    }
+    SPI_Close();
+}
 
 void play_music(void) {
     uint8_t data;
     uint32_t counter = 0;
     SPI_Open(SPI_DEFAULT);
+    CS_SetHigh();
     SPIFlashReadOpen(80);
     while(1) {
         while(PIR1bits.TMR2IF == 0);
         PIR1bits.TMR2IF = 0;
         data = SPIFlashByteRead2();
         DAC1_Load10bitInputData(data);
-        if (counter++ >= 7000) {
+        if (counter++ >= 30000) {
             counter = 0;
             SPIFlashReadClose();
             RB5 = 1;
@@ -175,7 +199,8 @@ void main(void)
 {
     SYSTEM_Initialize();
     if (RC0) {
-        save_music();
+        __delay_ms(100);
+        save_music_old();
     } else {
         play_music();
     }
