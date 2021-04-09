@@ -42,6 +42,9 @@
 */
 
 #include "mcc_generated_files/mcc.h"
+
+uint8_t PLAYING_SONG = 0;
+
 void CS_SetLow() {
     RB1 = 0;
 }
@@ -53,7 +56,8 @@ void SendAdrs(uint32_t address) {
     SPI_ExchangeByte((uint8_t)(address>>8));
     SPI_ExchangeByte((uint8_t)(address));
 }
-uint8_t SPIFlashByteRead(uint32_t address) {
+
+uint8_t SPIFlashByteReadOnce(uint32_t address) {
     uint8_t data;
     CS_SetLow();
     SPI_ExchangeByte(0x03);
@@ -62,6 +66,8 @@ uint8_t SPIFlashByteRead(uint32_t address) {
     CS_SetHigh();
     return data;
 }
+
+
 void SPIFlashReadOpen(uint32_t address) {
     CS_SetLow();
     SPI_ExchangeByte(0x03);
@@ -70,9 +76,11 @@ void SPIFlashReadOpen(uint32_t address) {
 void SPIFlashReadClose(void) {
     CS_SetHigh();
 }
-uint8_t SPIFlashByteRead2(void) {
+uint8_t SPIFlashByteRead(void) {
     return SPI_ExchangeByte(0xAA);
 }
+
+
 void SPIFlashByteWrite(uint32_t address, uint8_t data) {
     CS_SetLow();
     SPI_ExchangeByte(0x06); // Write Enable
@@ -83,21 +91,6 @@ void SPIFlashByteWrite(uint32_t address, uint8_t data) {
     SPI_ExchangeByte(data);
     CS_SetHigh();
     __delay_ms(2);
-}
-
-void SPIFlashWriteOpen(uint32_t address) {
-    CS_SetLow();
-    SPI_ExchangeByte(0x06); // Write Enable
-    CS_SetHigh();
-    CS_SetLow();
-    SPI_ExchangeByte(0x02);
-    SendAdrs(address);
-}
-void SPIFlashWriteClose(void) {
-    CS_SetHigh();
-}
-void SPIFlashWrite2(uint8_t data) {
-    SPI_ExchangeByte(data);
 }
 
 void SPIFlashErase(void) {
@@ -130,53 +123,11 @@ void save_music(void) {
     uint8_t data;
     uint32_t address = 0;
     SPI_Open(SPI_DEFAULT);
-    CS_SetHigh();
     SPIFlashUnprotect();
     SPIFlashErase();
-    SPIFlashWriteOpen(0);
     while(1) {
-        RB5 = 1;
-        data = getch();
-        SPIFlashWrite2(data);
-//        if (address++ % 1000 == 0) {
-//            printf("%u\r\n", address);
-//        }
-    }
-    SPI_Close();
-}
-void save_music_old(void) {
-    uint8_t data;
-    uint32_t address = 0;
-    uint32_t counter = 0;
-    SPI_Open(SPI_DEFAULT);
-    CS_SetHigh();
-    SPIFlashUnprotect();
-    SPIFlashErase();
-    
-    SPIFlashReadOpen(0);
-    while(1) {
-        while(PIR1bits.TMR2IF == 0);
-        PIR1bits.TMR2IF = 0;
-        data = SPIFlashByteRead2();
-        DAC1_Load10bitInputData(data);
-        if (counter++ >= 10000) {
-            SPIFlashReadClose();
-            RB5 = 1;
-            __delay_ms(3000);
-            RB5 = 0;
-            __delay_ms(3000);
-            break;
-        }
-        //printf("%d\r\n", data);
-    }
-    
-    while(1) {
-        RB5 = 1;
         data = getch();
         SPIFlashByteWrite(address++, data);
-//        if (address % 1000 == 0) {
-//            printf("address=%u, data=%x\r\n", address, data);
-//        }
     }
     SPI_Close();
 }
@@ -185,12 +136,11 @@ void play_music(void) {
     uint8_t data;
     uint32_t counter = 0;
     SPI_Open(SPI_DEFAULT);
-    CS_SetHigh();
     SPIFlashReadOpen(80);
     while(1) {
         while(PIR1bits.TMR2IF == 0);
         PIR1bits.TMR2IF = 0;
-        data = SPIFlashByteRead2();
+        data = SPIFlashByteRead();
         DAC1_Load10bitInputData(data);
         if (counter++ >= 240000) {
             counter = 0;
@@ -200,9 +150,46 @@ void play_music(void) {
             RB5 = 0;
             SPIFlashReadOpen(80);
         }
-        //printf("%d\r\n", data);
     }
     SPI_Close();
+}
+
+void play_music_once(uint32_t address, uint32_t length) {
+    uint32_t i;
+    uint8_t data;
+    CS_SetHigh();
+    SPI_Open(SPI_DEFAULT);
+    SPIFlashReadOpen(address);
+    for (i = 0; i < length; i++) {
+        while(PIR1bits.TMR2IF == 0);
+        PIR1bits.TMR2IF = 0;
+        data = SPIFlashByteRead();
+        DAC1_Load10bitInputData(data);
+    }
+    SPIFlashReadClose();
+    SPI_Close();
+}
+
+void play_1st_music(void) {
+    if (PLAYING_SONG == 1) {
+        SPIFlashReadClose();
+        SPI_Close();
+        PLAYING_SONG = 0;
+    } else {
+        PLAYING_SONG = 1;
+        play_music_once(0, 15 * 8000);
+    }
+}
+
+void play_2nd_music(void) {
+    if (PLAYING_SONG == 2) {
+        SPIFlashReadClose();
+        SPI_Close();
+        PLAYING_SONG = 0;
+    } else {
+        PLAYING_SONG = 2;
+        play_music_once(120001, 15 * 8000);
+    }
 }
 
 /*
@@ -211,12 +198,24 @@ void play_music(void) {
 void main(void)
 {
     SYSTEM_Initialize();
+    CS_SetHigh();
     if (RC0) {
+        RB5 = 1;
         __delay_ms(100);
-        save_music_old();
+        save_music();
     } else {
-        play_music();
-    }
+        IOCCF1_SetInterruptHandler(play_1st_music);
+        IOCCF2_SetInterruptHandler(play_2nd_music);
+        // play_music();
+        
+        // 割り込みがうまくいかなかったらこれをコメントイン
+//        while(1) {
+//            PIN_MANAGER_IOC();
+//        }
+        while(1) {
+            SLEEP();
+        }
+    } 
 }
 /**
  End of File
