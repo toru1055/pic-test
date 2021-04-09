@@ -147,10 +147,29 @@ void save_music(void) {
 void save_music_old(void) {
     uint8_t data;
     uint32_t address = 0;
+    uint32_t counter = 0;
     SPI_Open(SPI_DEFAULT);
     CS_SetHigh();
     SPIFlashUnprotect();
     SPIFlashErase();
+    
+    SPIFlashReadOpen(0);
+    while(1) {
+        while(PIR1bits.TMR2IF == 0);
+        PIR1bits.TMR2IF = 0;
+        data = SPIFlashByteRead2();
+        DAC1_Load10bitInputData(data);
+        if (counter++ >= 10000) {
+            SPIFlashReadClose();
+            RB5 = 1;
+            __delay_ms(3000);
+            RB5 = 0;
+            __delay_ms(3000);
+            break;
+        }
+        //printf("%d\r\n", data);
+    }
+    
     while(1) {
         RB5 = 1;
         data = getch();
@@ -173,7 +192,7 @@ void play_music(void) {
         PIR1bits.TMR2IF = 0;
         data = SPIFlashByteRead2();
         DAC1_Load10bitInputData(data);
-        if (counter++ >= 30000) {
+        if (counter++ >= 240000) {
             counter = 0;
             SPIFlashReadClose();
             RB5 = 1;
