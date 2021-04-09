@@ -135,18 +135,12 @@ void save_music(void) {
     SPIFlashErase();
     SPIFlashWriteOpen(0);
     while(1) {
-        if (address > 0 && RC0) {
-            SPIFlashWriteClose();
-            printf("Closed");
-            RB5 = 0;
-            break;
-        }
         RB5 = 1;
         data = getch();
         SPIFlashWrite2(data);
-        if (address++ % 1000 == 0) {
-            printf("%u\r\n", address);
-        }
+//        if (address++ % 1000 == 0) {
+//            printf("%u\r\n", address);
+//        }
     }
     SPI_Close();
 }
