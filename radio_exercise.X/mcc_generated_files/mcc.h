@@ -57,8 +57,9 @@
 #include "tmr2.h"
 #include "fvr.h"
 #include "opa1.h"
-#include "memory.h"
 #include "dac1.h"
+#include "memory.h"
+#include "ext_int.h"
 #include "eusart.h"
 
 

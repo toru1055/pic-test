@@ -58,6 +58,7 @@ void SYSTEM_Initialize(void)
     OPA1_Initialize();
     DAC1_Initialize();
     TMR2_Initialize();
+    EXT_INT_Initialize();
     EUSART_Initialize();
 }
 

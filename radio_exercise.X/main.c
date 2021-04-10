@@ -234,20 +234,21 @@ void main(void)
 {
     SYSTEM_Initialize();
     CS_SetHigh();
+    ei();
 //    save_end_address(1, 120000);
 //    save_end_address(2, 240000);
     if (RC0) {
         RB5 = 1;
         __delay_ms(100);
-        IOCBF6_SetInterruptHandler(save_1st_music);
-        IOCBF7_SetInterruptHandler(save_2nd_music);
+        IOCCF1_SetInterruptHandler(save_1st_music);
+        IOCCF2_SetInterruptHandler(save_2nd_music);
         save_music();
     } else {
-        IOCBF6_SetInterruptHandler(play_1st_music);
-        IOCBF7_SetInterruptHandler(play_2nd_music);
+        IOCCF1_SetInterruptHandler(play_1st_music);
+        IOCCF2_SetInterruptHandler(play_2nd_music);
         while(1) {
-            SLEEP();
-            PIN_MANAGER_IOC();
+            //SLEEP();
+            //PIN_MANAGER_IOC();
         }
     } 
 }
