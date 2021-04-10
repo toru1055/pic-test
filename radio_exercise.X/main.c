@@ -44,6 +44,7 @@
 #include "mcc_generated_files/mcc.h"
 
 uint8_t PLAYING_SONG = 0;
+uint32_t saving_address = 0;
 
 void CS_SetLow() {
     RB1 = 0;
@@ -121,15 +122,35 @@ void SPIFlashUnprotect(void) {
 
 void save_music(void) {
     uint8_t data;
-    uint32_t address = 0;
+    saving_address = 0;
     SPI_Open(SPI_DEFAULT);
     SPIFlashUnprotect();
     SPIFlashErase();
     while(1) {
         data = getch();
-        SPIFlashByteWrite(address++, data);
+        SPIFlashByteWrite(saving_address++, data);
     }
     SPI_Close();
+}
+
+void save_1st_music(void) {
+    
+}
+
+void save_2nd_music(void) {
+    
+}
+
+void save_end_address(uint16_t song_num, uint32_t end_address) {
+    uint16_t Buf[ERASE_FLASH_BLOCKSIZE];
+    FLASH_WriteWord((song_num<<1 + 0x00), Buf, (uint16_t)(end_address>>16));
+    FLASH_WriteWord((song_num<<1 + 0x01), Buf, (uint16_t)end_address);
+}
+
+uint32_t load_end_address(uint16_t song_num) {
+    uint32_t end_address = FLASH_ReadWord(song_num<<1 + 0x00);
+    end_address = (end_address<<16) + (uint32_t)FLASH_ReadWord(song_num<<1 + 0x01);
+    return end_address;
 }
 
 void play_music(void) {
@@ -154,13 +175,13 @@ void play_music(void) {
     SPI_Close();
 }
 
-void play_music_once(uint32_t address, uint32_t length) {
+void play_music_once(uint32_t from_address, uint32_t to_address) {
     uint32_t i;
     uint8_t data;
     CS_SetHigh();
     SPI_Open(SPI_DEFAULT);
-    SPIFlashReadOpen(address);
-    for (i = 0; i < length; i++) {
+    SPIFlashReadOpen(from_address);
+    for (i = from_address; i < to_address; i++) {
         while(PIR1bits.TMR2IF == 0);
         PIR1bits.TMR2IF = 0;
         data = SPIFlashByteRead();
@@ -171,9 +192,11 @@ void play_music_once(uint32_t address, uint32_t length) {
 }
 
 void play_1st_music(void) {
+    uint32_t from_address = 0;
+    uint32_t to_address = 120000;
     if (PLAYING_SONG == 0) {
         PLAYING_SONG = 1;
-        play_music_once(0, 120000);
+        play_music_once(from_address, to_address);
     } else if(PLAYING_SONG == 1) {
         SPIFlashReadClose();
         SPI_Close();
@@ -181,15 +204,17 @@ void play_1st_music(void) {
         SPIFlashReadClose();
         SPI_Close();
         PLAYING_SONG = 1;
-        play_music_once(0, 120000);
+        play_music_once(from_address, to_address);
     }
     PLAYING_SONG = 0;
 }
 
 void play_2nd_music(void) {
+    uint32_t from_address = 120000;
+    uint32_t to_address = 240000;
     if (PLAYING_SONG == 0) {
         PLAYING_SONG = 2;
-        play_music_once(120001, 120000);
+        play_music_once(from_address, to_address);
     } else if(PLAYING_SONG == 2) {
         SPIFlashReadClose();
         SPI_Close();
@@ -197,7 +222,7 @@ void play_2nd_music(void) {
         SPIFlashReadClose();
         SPI_Close();
         PLAYING_SONG = 2;
-        play_music_once(120001, 120000);
+        play_music_once(from_address, to_address);
     }
     PLAYING_SONG = 0;
 }
@@ -209,9 +234,13 @@ void main(void)
 {
     SYSTEM_Initialize();
     CS_SetHigh();
+//    save_end_address(1, 120000);
+//    save_end_address(2, 240000);
     if (RC0) {
         RB5 = 1;
         __delay_ms(100);
+        IOCBF6_SetInterruptHandler(save_1st_music);
+        IOCBF7_SetInterruptHandler(save_2nd_music);
         save_music();
     } else {
         IOCBF6_SetInterruptHandler(play_1st_music);
