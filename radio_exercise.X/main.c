@@ -171,25 +171,35 @@ void play_music_once(uint32_t address, uint32_t length) {
 }
 
 void play_1st_music(void) {
-    if (PLAYING_SONG == 1) {
+    if (PLAYING_SONG == 0) {
+        PLAYING_SONG = 1;
+        play_music_once(0, 120000);
+    } else if(PLAYING_SONG == 1) {
         SPIFlashReadClose();
         SPI_Close();
-        PLAYING_SONG = 0;
     } else {
+        SPIFlashReadClose();
+        SPI_Close();
         PLAYING_SONG = 1;
-        play_music_once(0, 15 * 8000);
+        play_music_once(0, 120000);
     }
+    PLAYING_SONG = 0;
 }
 
 void play_2nd_music(void) {
-    if (PLAYING_SONG == 2) {
+    if (PLAYING_SONG == 0) {
+        PLAYING_SONG = 2;
+        play_music_once(120001, 120000);
+    } else if(PLAYING_SONG == 2) {
         SPIFlashReadClose();
         SPI_Close();
-        PLAYING_SONG = 0;
     } else {
+        SPIFlashReadClose();
+        SPI_Close();
         PLAYING_SONG = 2;
-        play_music_once(120001, 15 * 8000);
+        play_music_once(120001, 120000);
     }
+    PLAYING_SONG = 0;
 }
 
 /*
@@ -204,16 +214,11 @@ void main(void)
         __delay_ms(100);
         save_music();
     } else {
-        IOCCF1_SetInterruptHandler(play_1st_music);
-        IOCCF2_SetInterruptHandler(play_2nd_music);
-        // play_music();
-        
-        // 割り込みがうまくいかなかったらこれをコメントイン
-//        while(1) {
-//            PIN_MANAGER_IOC();
-//        }
+        IOCBF6_SetInterruptHandler(play_1st_music);
+        IOCBF7_SetInterruptHandler(play_2nd_music);
         while(1) {
             SLEEP();
+            PIN_MANAGER_IOC();
         }
     } 
 }
