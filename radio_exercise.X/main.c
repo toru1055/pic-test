@@ -43,6 +43,8 @@
 
 #include "mcc_generated_files/mcc.h"
 
+#define INNER_FLASH_ADDRESS 0x3F80
+
 uint8_t PLAYING_SONG = 0;
 uint32_t saving_address = 0;
 
@@ -133,23 +135,25 @@ void save_music(void) {
     SPI_Close();
 }
 
+void save_end_address(uint16_t song_num, uint32_t end_address) {
+    uint16_t Buf[ERASE_FLASH_BLOCKSIZE];
+    FLASH_WriteWord((song_num<<4) + INNER_FLASH_ADDRESS + 0x0, Buf, (uint8_t)(end_address>>16));
+    FLASH_WriteWord((song_num<<4) + INNER_FLASH_ADDRESS + 0x1, Buf, (uint8_t)(end_address>>8));
+    FLASH_WriteWord((song_num<<4) + INNER_FLASH_ADDRESS + 0x2, Buf, (uint8_t)(end_address>>0));
+}
+
 void save_1st_music(void) {
-    
+    save_end_address(1, saving_address);
 }
 
 void save_2nd_music(void) {
-    
-}
-
-void save_end_address(uint16_t song_num, uint32_t end_address) {
-    uint16_t Buf[ERASE_FLASH_BLOCKSIZE];
-    FLASH_WriteWord((song_num<<1 + 0x00), Buf, (uint16_t)(end_address>>16));
-    FLASH_WriteWord((song_num<<1 + 0x01), Buf, (uint16_t)end_address);
+    save_end_address(2, saving_address);
 }
 
 uint32_t load_end_address(uint16_t song_num) {
-    uint32_t end_address = FLASH_ReadWord(song_num<<1 + 0x00);
-    end_address = (end_address<<16) + (uint32_t)FLASH_ReadWord(song_num<<1 + 0x01);
+    uint32_t end_address = FLASH_ReadWord((song_num<<4) + INNER_FLASH_ADDRESS + 0x0);
+    end_address = (end_address<<8) + (uint32_t)FLASH_ReadWord((song_num<<4) + INNER_FLASH_ADDRESS + 0x1);
+    end_address = (end_address<<8) + (uint32_t)FLASH_ReadWord((song_num<<4) + INNER_FLASH_ADDRESS + 0x2);
     return end_address;
 }
 
@@ -193,7 +197,7 @@ void play_music_once(uint32_t from_address, uint32_t to_address) {
 
 void play_1st_music(void) {
     uint32_t from_address = 0;
-    uint32_t to_address = 120000;
+    uint32_t to_address = load_end_address(1);
     if (PLAYING_SONG == 0) {
         PLAYING_SONG = 1;
         play_music_once(from_address, to_address);
@@ -210,8 +214,8 @@ void play_1st_music(void) {
 }
 
 void play_2nd_music(void) {
-    uint32_t from_address = 120000;
-    uint32_t to_address = 240000;
+    uint32_t from_address = load_end_address(1) + 1;
+    uint32_t to_address = load_end_address(2);
     if (PLAYING_SONG == 0) {
         PLAYING_SONG = 2;
         play_music_once(from_address, to_address);
@@ -247,8 +251,7 @@ void main(void)
         IOCCF1_SetInterruptHandler(play_1st_music);
         IOCCF2_SetInterruptHandler(play_2nd_music);
         while(1) {
-            //SLEEP();
-            //PIN_MANAGER_IOC();
+            SLEEP();
         }
     } 
 }
