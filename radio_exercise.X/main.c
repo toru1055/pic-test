@@ -44,9 +44,11 @@
 #include "mcc_generated_files/mcc.h"
 
 #define INNER_FLASH_ADDRESS 0x3F80
+#define SONG_DATA_ADDRESS 0x0100
+#define SONG_SETTING_ADDRESS 0x0000
 
 uint8_t PLAYING_SONG = 0;
-uint32_t saving_address = 0;
+uint32_t saving_address = SONG_DATA_ADDRESS;
 
 void CS_SetLow() {
     RB1 = 0;
@@ -122,24 +124,11 @@ void SPIFlashUnprotect(void) {
     __delay_ms(50);
 }
 
-void save_music(void) {
-    uint8_t data;
-    saving_address = 0;
-    SPI_Open(SPI_DEFAULT);
-    SPIFlashUnprotect();
-    SPIFlashErase();
-    while(1) {
-        data = getch();
-        SPIFlashByteWrite(saving_address++, data);
-    }
-    SPI_Close();
-}
-
 void save_end_address(uint16_t song_num, uint32_t end_address) {
     uint16_t Buf[ERASE_FLASH_BLOCKSIZE];
-    FLASH_WriteWord((song_num<<4) + INNER_FLASH_ADDRESS + 0x0, Buf, (uint8_t)(end_address>>16));
-    FLASH_WriteWord((song_num<<4) + INNER_FLASH_ADDRESS + 0x1, Buf, (uint8_t)(end_address>>8));
-    FLASH_WriteWord((song_num<<4) + INNER_FLASH_ADDRESS + 0x2, Buf, (uint8_t)(end_address>>0));
+    FLASH_WriteWord((song_num*0x010) + INNER_FLASH_ADDRESS + 0x000, Buf, (uint8_t)(end_address>>16));
+    FLASH_WriteWord((song_num*0x010) + INNER_FLASH_ADDRESS + 0x001, Buf, (uint8_t)(end_address>>8));
+    FLASH_WriteWord((song_num*0x010) + INNER_FLASH_ADDRESS + 0x002, Buf, (uint8_t)(end_address>>0));
 }
 
 void save_1st_music(void) {
@@ -150,10 +139,28 @@ void save_2nd_music(void) {
     save_end_address(2, saving_address);
 }
 
+void save_music(void) {
+    uint8_t data;
+    saving_address = SONG_DATA_ADDRESS;
+    SPI_Open(SPI_DEFAULT);
+    SPIFlashUnprotect();
+    SPIFlashErase();
+    while(1) {
+        data = getch();
+        SPIFlashByteWrite(saving_address++, data);
+    }
+    SPI_Close();
+}
+
+void save_music_dummy(void) {
+    save_end_address(1, 120000);
+    save_end_address(2, 240000);
+}
+
 uint32_t load_end_address(uint16_t song_num) {
-    uint32_t end_address = FLASH_ReadWord((song_num<<4) + INNER_FLASH_ADDRESS + 0x0);
-    end_address = (end_address<<8) + (uint32_t)FLASH_ReadWord((song_num<<4) + INNER_FLASH_ADDRESS + 0x1);
-    end_address = (end_address<<8) + (uint32_t)FLASH_ReadWord((song_num<<4) + INNER_FLASH_ADDRESS + 0x2);
+    uint32_t end_address = FLASH_ReadWord((song_num*0x010) + INNER_FLASH_ADDRESS + 0x000);
+    end_address = (end_address<<8) + (uint32_t)FLASH_ReadWord((song_num*0x010) + INNER_FLASH_ADDRESS + 0x001);
+    end_address = (end_address<<8) + (uint32_t)FLASH_ReadWord((song_num*0x010) + INNER_FLASH_ADDRESS + 0x002);
     return end_address;
 }
 
@@ -196,7 +203,7 @@ void play_music_once(uint32_t from_address, uint32_t to_address) {
 }
 
 void play_1st_music(void) {
-    uint32_t from_address = 0;
+    uint32_t from_address = SONG_DATA_ADDRESS;
     uint32_t to_address = load_end_address(1);
     if (PLAYING_SONG == 0) {
         PLAYING_SONG = 1;
@@ -239,14 +246,13 @@ void main(void)
     SYSTEM_Initialize();
     CS_SetHigh();
     ei();
-//    save_end_address(1, 120000);
-//    save_end_address(2, 240000);
     if (RC0) {
         RB5 = 1;
         __delay_ms(100);
-        IOCCF1_SetInterruptHandler(save_1st_music);
-        IOCCF2_SetInterruptHandler(save_2nd_music);
-        save_music();
+//        IOCCF1_SetInterruptHandler(save_1st_music);
+//        IOCCF2_SetInterruptHandler(save_2nd_music);
+//        save_music();
+        save_music_dummy();
     } else {
         IOCCF1_SetInterruptHandler(play_1st_music);
         IOCCF2_SetInterruptHandler(play_2nd_music);
