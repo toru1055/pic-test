@@ -256,6 +256,7 @@ void main(void)
 //        save_music();
         save_music_dummy();
     } else {
+        RC3 = 0;
         IOCCF1_SetInterruptHandler(play_1st_music);
         IOCCF2_SetInterruptHandler(play_2nd_music);
         while(1) {
