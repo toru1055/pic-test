@@ -189,6 +189,7 @@ void play_music(void) {
 void play_music_once(uint32_t from_address, uint32_t to_address) {
     uint32_t i;
     uint8_t data;
+    RC3 = 1;
     CS_SetHigh();
     SPI_Open(SPI_DEFAULT);
     SPIFlashReadOpen(from_address);
@@ -200,6 +201,7 @@ void play_music_once(uint32_t from_address, uint32_t to_address) {
     }
     SPIFlashReadClose();
     SPI_Close();
+    RC3 = 0;
 }
 
 void play_1st_music(void) {
