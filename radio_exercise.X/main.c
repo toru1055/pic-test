@@ -189,7 +189,7 @@ void play_music(void) {
 void play_music_once(uint32_t from_address, uint32_t to_address) {
     uint32_t i;
     uint8_t data;
-    RC3 = 1;
+    RC3 = 0;
     CS_SetHigh();
     SPI_Open(SPI_DEFAULT);
     SPIFlashReadOpen(from_address);
@@ -201,7 +201,7 @@ void play_music_once(uint32_t from_address, uint32_t to_address) {
     }
     SPIFlashReadClose();
     SPI_Close();
-    RC3 = 0;
+    RC3 = 1;
 }
 
 void play_1st_music(void) {
@@ -246,6 +246,7 @@ void play_2nd_music(void) {
 void main(void)
 {
     SYSTEM_Initialize();
+    RC3 = 1;
     CS_SetHigh();
     ei();
     if (RC0) {
@@ -256,7 +257,6 @@ void main(void)
 //        save_music();
         save_music_dummy();
     } else {
-        RC3 = 0;
         IOCCF1_SetInterruptHandler(play_1st_music);
         IOCCF2_SetInterruptHandler(play_2nd_music);
         while(1) {
