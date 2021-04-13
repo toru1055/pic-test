@@ -47,7 +47,7 @@
 #define SONG_DATA_ADDRESS 0x0100
 #define SONG_SETTING_ADDRESS 0x0000
 
-uint8_t PLAYING_SONG = 0;
+uint8_t playing_song = 0;
 uint32_t saving_address = SONG_DATA_ADDRESS;
 
 void CS_SetLow() {
@@ -189,7 +189,7 @@ void play_music(void) {
 void play_music_once(uint32_t from_address, uint32_t to_address) {
     uint32_t i;
     uint8_t data;
-    RC3 = 1;
+    RC3 = 0;
     CS_SetHigh();
     SPI_Open(SPI_DEFAULT);
     SPIFlashReadOpen(from_address);
@@ -201,43 +201,43 @@ void play_music_once(uint32_t from_address, uint32_t to_address) {
     }
     SPIFlashReadClose();
     SPI_Close();
-    RC3 = 0;
+    RC3 = 1;
 }
 
 void play_1st_music(void) {
     uint32_t from_address = SONG_DATA_ADDRESS;
     uint32_t to_address = load_end_address(1);
-    if (PLAYING_SONG == 0) {
-        PLAYING_SONG = 1;
+    if (playing_song == 0) {
+        playing_song = 1;
         play_music_once(from_address, to_address);
-    } else if(PLAYING_SONG == 1) {
+    } else if(playing_song == 1) {
         SPIFlashReadClose();
         SPI_Close();
     } else {
         SPIFlashReadClose();
         SPI_Close();
-        PLAYING_SONG = 1;
+        playing_song = 1;
         play_music_once(from_address, to_address);
     }
-    PLAYING_SONG = 0;
+    playing_song = 0;
 }
 
 void play_2nd_music(void) {
     uint32_t from_address = load_end_address(1) + 1;
     uint32_t to_address = load_end_address(2);
-    if (PLAYING_SONG == 0) {
-        PLAYING_SONG = 2;
+    if (playing_song == 0) {
+        playing_song = 2;
         play_music_once(from_address, to_address);
-    } else if(PLAYING_SONG == 2) {
+    } else if(playing_song == 2) {
         SPIFlashReadClose();
         SPI_Close();
     } else {
         SPIFlashReadClose();
         SPI_Close();
-        PLAYING_SONG = 2;
+        playing_song = 2;
         play_music_once(from_address, to_address);
     }
-    PLAYING_SONG = 0;
+    playing_song = 0;
 }
 
 /*
@@ -246,6 +246,7 @@ void play_2nd_music(void) {
 void main(void)
 {
     SYSTEM_Initialize();
+    RC3 = 1;
     CS_SetHigh();
     ei();
     if (RC0) {
@@ -256,7 +257,6 @@ void main(void)
 //        save_music();
         save_music_dummy();
     } else {
-        RC3 = 0;
         IOCCF1_SetInterruptHandler(play_1st_music);
         IOCCF2_SetInterruptHandler(play_2nd_music);
         while(1) {
