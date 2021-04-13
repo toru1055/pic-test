@@ -1,0 +1,383 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L power:GND #PWR?
+U 1 1 6075A15C
+P 7200 3250
+F 0 "#PWR?" H 7200 3000 50  0001 C CNN
+F 1 "GND" H 7205 3077 50  0000 C CNN
+F 2 "" H 7200 3250 50  0001 C CNN
+F 3 "" H 7200 3250 50  0001 C CNN
+	1    7200 3250
+	1    0    0    -1  
+$EndComp
+$Comp
+L PIC16F1778-I_SP:PIC16F1778-I_SP IC?
+U 1 1 6075AE19
+P 4700 2900
+F 0 "IC?" H 5650 3165 50  0000 C CNN
+F 1 "PIC16F1778-I_SP" H 5650 3074 50  0000 C CNN
+F 2 "DIP794W56P254L3486H508Q28N" H 6450 3000 50  0001 L CNN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/40001819B.pdf" H 6450 2900 50  0001 L CNN
+F 4 "Microchip PIC16F1778-I/SP, 8bit PIC Microcontroller, 32MHz, 28 kB Flash, 28-Pin SPDIP" H 6450 2800 50  0001 L CNN "Description"
+F 5 "5.08" H 6450 2700 50  0001 L CNN "Height"
+F 6 "Microchip" H 6450 2600 50  0001 L CNN "Manufacturer_Name"
+F 7 "PIC16F1778-I/SP" H 6450 2500 50  0001 L CNN "Manufacturer_Part_Number"
+F 8 "579-PIC16F1778-I/SP" H 6450 2400 50  0001 L CNN "Mouser Part Number"
+F 9 "https://www.mouser.co.uk/ProductDetail/Microchip-Technology/PIC16F1778-I-SP?qs=BA62vJVifGpNhiE%2FG8an3w%3D%3D" H 6450 2300 50  0001 L CNN "Mouser Price/Stock"
+F 10 "PIC16F1778-I/SP" H 6450 2200 50  0001 L CNN "Arrow Part Number"
+F 11 "https://www.arrow.com/en/products/pic16f1778-isp/microchip-technology" H 6450 2100 50  0001 L CNN "Arrow Price/Stock"
+	1    4700 2900
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 60769A28
+P 4300 3100
+F 0 "R?" V 4093 3100 50  0000 C CNN
+F 1 "R" V 4184 3100 50  0000 C CNN
+F 2 "" V 4230 3100 50  0001 C CNN
+F 3 "~" H 4300 3100 50  0001 C CNN
+	1    4300 3100
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4700 3100 4450 3100
+Wire Wire Line
+	1900 2500 1900 3150
+Wire Wire Line
+	1900 3150 2200 3150
+$Comp
+L HT82V739:HT82V739 IC?
+U 1 1 6076049A
+P 2200 3050
+F 0 "IC?" H 2800 3315 50  0000 C CNN
+F 1 "HT82V739" H 2800 3224 50  0000 C CNN
+F 2 "SOIC127P600X175-8N" H 3250 3150 50  0001 L CNN
+F 3 "http://www.holtek.com.tw/documents/10179/11842/HT82V739v130.pdf" H 3250 3050 50  0001 L CNN
+F 4 "1200mW Audio Power Amp with Shutdown" H 3250 2950 50  0001 L CNN "Description"
+F 5 "1.75" H 3250 2850 50  0001 L CNN "Height"
+F 6 "Holtek" H 3250 2750 50  0001 L CNN "Manufacturer_Name"
+F 7 "HT82V739" H 3250 2650 50  0001 L CNN "Manufacturer_Part_Number"
+F 8 "" H 3250 2550 50  0001 L CNN "Mouser Part Number"
+F 9 "" H 3250 2450 50  0001 L CNN "Mouser Price/Stock"
+F 10 "" H 3250 2350 50  0001 L CNN "Arrow Part Number"
+F 11 "" H 3250 2250 50  0001 L CNN "Arrow Price/Stock"
+	1    2200 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VDD #PWR?
+U 1 1 6076D534
+P 3400 2800
+F 0 "#PWR?" H 3400 2650 50  0001 C CNN
+F 1 "VDD" H 3415 2973 50  0000 C CNN
+F 2 "" H 3400 2800 50  0001 C CNN
+F 3 "" H 3400 2800 50  0001 C CNN
+	1    3400 2800
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 6076DFC2
+P 2200 3350
+F 0 "#PWR?" H 2200 3100 50  0001 C CNN
+F 1 "GND" H 2205 3177 50  0000 C CNN
+F 2 "" H 2200 3350 50  0001 C CNN
+F 3 "" H 2200 3350 50  0001 C CNN
+	1    2200 3350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:Speaker LS?
+U 1 1 6076EFCA
+P 2900 1500
+F 0 "LS?" V 2909 1220 50  0000 R CNN
+F 1 "Speaker" V 2818 1220 50  0000 R CNN
+F 2 "" H 2900 1300 50  0001 C CNN
+F 3 "~" H 2890 1450 50  0001 C CNN
+	1    2900 1500
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Connector:TestPoint TP?
+U 1 1 60774FCF
+P 3200 2100
+F 0 "TP?" H 3258 2218 50  0000 L CNN
+F 1 "TestPoint" H 3258 2127 50  0000 L CNN
+F 2 "" H 3400 2100 50  0001 C CNN
+F 3 "~" H 3400 2100 50  0001 C CNN
+	1    3200 2100
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:TestPoint TP?
+U 1 1 607737BA
+P 2700 2100
+F 0 "TP?" H 2758 2218 50  0000 L CNN
+F 1 "TestPoint" H 2758 2127 50  0000 L CNN
+F 2 "" H 2900 2100 50  0001 C CNN
+F 3 "~" H 2900 2100 50  0001 C CNN
+	1    2700 2100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2200 3050 2200 2400
+Wire Wire Line
+	2200 2400 2700 2400
+Wire Wire Line
+	3400 3150 3700 3150
+Wire Wire Line
+	3700 3150 3700 2400
+Wire Wire Line
+	3700 2400 3200 2400
+$Comp
+L Device:C C?
+U 1 1 60779AA0
+P 1900 2350
+F 0 "C?" H 2015 2396 50  0000 L CNN
+F 1 "C" H 2015 2305 50  0000 L CNN
+F 2 "" H 1938 2200 50  0001 C CNN
+F 3 "~" H 1900 2350 50  0001 C CNN
+	1    1900 2350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1900 2200 4150 2200
+Wire Wire Line
+	4150 2200 4150 3100
+Wire Wire Line
+	1900 3250 2200 3250
+$Comp
+L Device:C C4
+U 1 1 6077AB96
+P 1900 3400
+F 0 "C4" H 2015 3446 50  0000 L CNN
+F 1 "C" H 2015 3355 50  0000 L CNN
+F 2 "" H 1938 3250 50  0001 C CNN
+F 3 "~" H 1900 3400 50  0001 C CNN
+	1    1900 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 6077BB37
+P 1900 3550
+F 0 "#PWR?" H 1900 3300 50  0001 C CNN
+F 1 "GND" H 1905 3377 50  0000 C CNN
+F 2 "" H 1900 3550 50  0001 C CNN
+F 3 "" H 1900 3550 50  0001 C CNN
+	1    1900 3550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3400 3050 3600 3050
+Connection ~ 3400 3050
+Wire Wire Line
+	3400 3050 3400 2800
+$Comp
+L Device:CP C?
+U 1 1 6077EAA8
+P 3600 3500
+F 0 "C?" H 3718 3546 50  0000 L CNN
+F 1 "CP" H 3718 3455 50  0000 L CNN
+F 2 "" H 3638 3350 50  0001 C CNN
+F 3 "~" H 3600 3500 50  0001 C CNN
+	1    3600 3500
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 6077F479
+P 3600 3650
+F 0 "#PWR?" H 3600 3400 50  0001 C CNN
+F 1 "GND" H 3605 3477 50  0000 C CNN
+F 2 "" H 3600 3650 50  0001 C CNN
+F 3 "" H 3600 3650 50  0001 C CNN
+	1    3600 3650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3600 3050 3600 3350
+Wire Wire Line
+	3200 2400 3200 2100
+Wire Wire Line
+	2700 2400 2700 2100
+$Comp
+L Connector:TestPoint TP?
+U 1 1 60784D32
+P 2850 4200
+F 0 "TP?" V 3045 4272 50  0000 C CNN
+F 1 "TestPoint" V 2954 4272 50  0000 C CNN
+F 2 "" H 3050 4200 50  0001 C CNN
+F 3 "~" H 3050 4200 50  0001 C CNN
+	1    2850 4200
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Connector:TestPoint TP?
+U 1 1 60785DE1
+P 2850 4600
+F 0 "TP?" V 3045 4672 50  0000 C CNN
+F 1 "TestPoint" V 2954 4672 50  0000 C CNN
+F 2 "" H 3050 4600 50  0001 C CNN
+F 3 "~" H 3050 4600 50  0001 C CNN
+	1    2850 4600
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:VDD #PWR?
+U 1 1 60786962
+P 2850 4200
+F 0 "#PWR?" H 2850 4050 50  0001 C CNN
+F 1 "VDD" H 2865 4373 50  0000 C CNN
+F 2 "" H 2850 4200 50  0001 C CNN
+F 3 "" H 2850 4200 50  0001 C CNN
+	1    2850 4200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 60787401
+P 2850 4600
+F 0 "#PWR?" H 2850 4350 50  0001 C CNN
+F 1 "GND" H 2855 4427 50  0000 C CNN
+F 2 "" H 2850 4600 50  0001 C CNN
+F 3 "" H 2850 4600 50  0001 C CNN
+	1    2850 4600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 607885EC
+P 4450 3600
+F 0 "#PWR?" H 4450 3350 50  0001 C CNN
+F 1 "GND" H 4455 3427 50  0000 C CNN
+F 2 "" H 4450 3600 50  0001 C CNN
+F 3 "" H 4450 3600 50  0001 C CNN
+	1    4450 3600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4700 3600 4450 3600
+$Comp
+L power:GND #PWR?
+U 1 1 60788EE1
+P 6850 3800
+F 0 "#PWR?" H 6850 3550 50  0001 C CNN
+F 1 "GND" H 6855 3627 50  0000 C CNN
+F 2 "" H 6850 3800 50  0001 C CNN
+F 3 "" H 6850 3800 50  0001 C CNN
+	1    6850 3800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6600 3800 6850 3800
+$Comp
+L power:VDD #PWR?
+U 1 1 607899DD
+P 6850 3700
+F 0 "#PWR?" H 6850 3550 50  0001 C CNN
+F 1 "VDD" H 6865 3873 50  0000 C CNN
+F 2 "" H 6850 3700 50  0001 C CNN
+F 3 "" H 6850 3700 50  0001 C CNN
+	1    6850 3700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6600 3700 6850 3700
+$Comp
+L Device:C C?
+U 1 1 6078A322
+P 7000 3700
+F 0 "C?" V 6748 3700 50  0000 C CNN
+F 1 "C" V 6839 3700 50  0000 C CNN
+F 2 "" H 7038 3550 50  0001 C CNN
+F 3 "~" H 7000 3700 50  0001 C CNN
+	1    7000 3700
+	0    1    1    0   
+$EndComp
+Connection ~ 6850 3700
+Wire Wire Line
+	7150 3700 7150 3800
+Wire Wire Line
+	7150 3800 6850 3800
+Connection ~ 6850 3800
+Wire Wire Line
+	8800 3050 8800 2950
+Connection ~ 8800 2950
+$Comp
+L SST26VF064B-104I_SM:SST26VF064B-104I_SM IC?
+U 1 1 6076184C
+P 7200 2950
+F 0 "IC?" H 8000 3215 50  0000 C CNN
+F 1 "SST26VF064B-104I_SM" H 8000 3124 50  0000 C CNN
+F 2 "SOIC127P794X203-8N" H 8650 3050 50  0001 L CNN
+F 3 "http://docs-emea.rs-online.com/webdocs/13d5/0900766b813d591e.pdf" H 8650 2950 50  0001 L CNN
+F 4 "Flash Memory SQI 64Mbit 3.0V 8-Pin SOIJ SST26VF064B-104I/SM, SPI Split Gate Flash Memory, 8M x 8 bit 64Mbit, 3ns, 2.7  3.6 V, 8-Pin, SOIJ" H 8650 2850 50  0001 L CNN "Description"
+F 5 "2.03" H 8650 2750 50  0001 L CNN "Height"
+F 6 "Microchip" H 8650 2650 50  0001 L CNN "Manufacturer_Name"
+F 7 "SST26VF064B-104I/SM" H 8650 2550 50  0001 L CNN "Manufacturer_Part_Number"
+F 8 "579-ST26VF064B104ISM" H 8650 2450 50  0001 L CNN "Mouser Part Number"
+F 9 "https://www.mouser.co.uk/ProductDetail/Microchip-Technology/SST26VF064B-104I-SM?qs=wzzOUr4NhYqqlRLwOxpHxA%3D%3D" H 8650 2350 50  0001 L CNN "Mouser Price/Stock"
+F 10 "SST26VF064B-104I/SM" H 8650 2250 50  0001 L CNN "Arrow Part Number"
+F 11 "https://www.arrow.com/en/products/sst26vf064b-104ism/microchip-technology" H 8650 2150 50  0001 L CNN "Arrow Price/Stock"
+	1    7200 2950
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VDD #PWR?
+U 1 1 607588C6
+P 8800 2400
+F 0 "#PWR?" H 8800 2250 50  0001 C CNN
+F 1 "VDD" H 8815 2573 50  0000 C CNN
+F 2 "" H 8800 2400 50  0001 C CNN
+F 3 "" H 8800 2400 50  0001 C CNN
+	1    8800 2400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8800 2450 8700 2450
+$Comp
+L Device:C C?
+U 1 1 607902E4
+P 8550 2450
+F 0 "C?" V 8298 2450 50  0000 C CNN
+F 1 "C" V 8389 2450 50  0000 C CNN
+F 2 "" H 8588 2300 50  0001 C CNN
+F 3 "~" H 8550 2450 50  0001 C CNN
+	1    8550 2450
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 60790BCF
+P 8400 2600
+F 0 "#PWR?" H 8400 2350 50  0001 C CNN
+F 1 "GND" H 8405 2427 50  0000 C CNN
+F 2 "" H 8400 2600 50  0001 C CNN
+F 3 "" H 8400 2600 50  0001 C CNN
+	1    8400 2600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8400 2450 8400 2600
+Connection ~ 8800 2450
+Wire Wire Line
+	8800 2450 8800 2400
+Wire Wire Line
+	8800 2450 8800 2950
+$EndSCHEMATC

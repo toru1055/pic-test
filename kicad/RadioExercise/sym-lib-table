@@ -1,0 +1,5 @@
+(sym_lib_table
+  (lib (name SST26VF064B-104I_SM)(type Legacy)(uri /Users/thotta/Downloads/LIB_SST26VF064B-104I_SM/SST26VF064B-104I_SM/KiCad/SST26VF064B-104I_SM.lib)(options "")(descr ""))
+  (lib (name HT82V739)(type Legacy)(uri /Users/thotta/Downloads/LIB_HT82V739/HT82V739/KiCad/HT82V739.lib)(options "")(descr ""))
+  (lib (name PIC16F1778-I_SP)(type Legacy)(uri /Users/thotta/Downloads/LIB_PIC16F1778-I_SP/PIC16F1778-I_SP/KiCad/PIC16F1778-I_SP.lib)(options "")(descr ""))
+)
