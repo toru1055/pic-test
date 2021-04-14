@@ -14,36 +14,6 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L power:GND #PWR?
-U 1 1 6075A15C
-P 7200 3250
-F 0 "#PWR?" H 7200 3000 50  0001 C CNN
-F 1 "GND" H 7205 3077 50  0000 C CNN
-F 2 "" H 7200 3250 50  0001 C CNN
-F 3 "" H 7200 3250 50  0001 C CNN
-	1    7200 3250
-	1    0    0    -1  
-$EndComp
-$Comp
-L PIC16F1778-I_SP:PIC16F1778-I_SP IC?
-U 1 1 6075AE19
-P 4700 2900
-F 0 "IC?" H 5650 3165 50  0000 C CNN
-F 1 "PIC16F1778-I_SP" H 5650 3074 50  0000 C CNN
-F 2 "DIP794W56P254L3486H508Q28N" H 6450 3000 50  0001 L CNN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/40001819B.pdf" H 6450 2900 50  0001 L CNN
-F 4 "Microchip PIC16F1778-I/SP, 8bit PIC Microcontroller, 32MHz, 28 kB Flash, 28-Pin SPDIP" H 6450 2800 50  0001 L CNN "Description"
-F 5 "5.08" H 6450 2700 50  0001 L CNN "Height"
-F 6 "Microchip" H 6450 2600 50  0001 L CNN "Manufacturer_Name"
-F 7 "PIC16F1778-I/SP" H 6450 2500 50  0001 L CNN "Manufacturer_Part_Number"
-F 8 "579-PIC16F1778-I/SP" H 6450 2400 50  0001 L CNN "Mouser Part Number"
-F 9 "https://www.mouser.co.uk/ProductDetail/Microchip-Technology/PIC16F1778-I-SP?qs=BA62vJVifGpNhiE%2FG8an3w%3D%3D" H 6450 2300 50  0001 L CNN "Mouser Price/Stock"
-F 10 "PIC16F1778-I/SP" H 6450 2200 50  0001 L CNN "Arrow Part Number"
-F 11 "https://www.arrow.com/en/products/pic16f1778-isp/microchip-technology" H 6450 2100 50  0001 L CNN "Arrow Price/Stock"
-	1    4700 2900
-	1    0    0    -1  
-$EndComp
-$Comp
 L Device:R R?
 U 1 1 60769A28
 P 4300 3100
@@ -104,46 +74,24 @@ $EndComp
 $Comp
 L Device:Speaker LS?
 U 1 1 6076EFCA
-P 2900 1500
-F 0 "LS?" V 2909 1220 50  0000 R CNN
-F 1 "Speaker" V 2818 1220 50  0000 R CNN
-F 2 "" H 2900 1300 50  0001 C CNN
-F 3 "~" H 2890 1450 50  0001 C CNN
-	1    2900 1500
+P 2950 1900
+F 0 "LS?" V 2959 1620 50  0000 R CNN
+F 1 "Speaker" V 2868 1620 50  0000 R CNN
+F 2 "" H 2950 1700 50  0001 C CNN
+F 3 "~" H 2940 1850 50  0001 C CNN
+	1    2950 1900
 	0    -1   -1   0   
-$EndComp
-$Comp
-L Connector:TestPoint TP?
-U 1 1 60774FCF
-P 3200 2100
-F 0 "TP?" H 3258 2218 50  0000 L CNN
-F 1 "TestPoint" H 3258 2127 50  0000 L CNN
-F 2 "" H 3400 2100 50  0001 C CNN
-F 3 "~" H 3400 2100 50  0001 C CNN
-	1    3200 2100
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector:TestPoint TP?
-U 1 1 607737BA
-P 2700 2100
-F 0 "TP?" H 2758 2218 50  0000 L CNN
-F 1 "TestPoint" H 2758 2127 50  0000 L CNN
-F 2 "" H 2900 2100 50  0001 C CNN
-F 3 "~" H 2900 2100 50  0001 C CNN
-	1    2700 2100
-	1    0    0    -1  
 $EndComp
 Wire Wire Line
 	2200 3050 2200 2400
 Wire Wire Line
-	2200 2400 2700 2400
+	2200 2400 2950 2400
 Wire Wire Line
 	3400 3150 3700 3150
 Wire Wire Line
 	3700 3150 3700 2400
 Wire Wire Line
-	3700 2400 3200 2400
+	3700 2400 3050 2400
 $Comp
 L Device:C C?
 U 1 1 60779AA0
@@ -212,10 +160,6 @@ F 3 "" H 3600 3650 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	3600 3050 3600 3350
-Wire Wire Line
-	3200 2400 3200 2100
-Wire Wire Line
-	2700 2400 2700 2100
 $Comp
 L Connector:TestPoint TP?
 U 1 1 60784D32
@@ -316,68 +260,188 @@ Wire Wire Line
 Wire Wire Line
 	7150 3800 6850 3800
 Connection ~ 6850 3800
-Wire Wire Line
-	8800 3050 8800 2950
-Connection ~ 8800 2950
 $Comp
-L SST26VF064B-104I_SM:SST26VF064B-104I_SM IC?
-U 1 1 6076184C
-P 7200 2950
-F 0 "IC?" H 8000 3215 50  0000 C CNN
-F 1 "SST26VF064B-104I_SM" H 8000 3124 50  0000 C CNN
-F 2 "SOIC127P794X203-8N" H 8650 3050 50  0001 L CNN
-F 3 "http://docs-emea.rs-online.com/webdocs/13d5/0900766b813d591e.pdf" H 8650 2950 50  0001 L CNN
-F 4 "Flash Memory SQI 64Mbit 3.0V 8-Pin SOIJ SST26VF064B-104I/SM, SPI Split Gate Flash Memory, 8M x 8 bit 64Mbit, 3ns, 2.7  3.6 V, 8-Pin, SOIJ" H 8650 2850 50  0001 L CNN "Description"
-F 5 "2.03" H 8650 2750 50  0001 L CNN "Height"
-F 6 "Microchip" H 8650 2650 50  0001 L CNN "Manufacturer_Name"
-F 7 "SST26VF064B-104I/SM" H 8650 2550 50  0001 L CNN "Manufacturer_Part_Number"
-F 8 "579-ST26VF064B104ISM" H 8650 2450 50  0001 L CNN "Mouser Part Number"
-F 9 "https://www.mouser.co.uk/ProductDetail/Microchip-Technology/SST26VF064B-104I-SM?qs=wzzOUr4NhYqqlRLwOxpHxA%3D%3D" H 8650 2350 50  0001 L CNN "Mouser Price/Stock"
-F 10 "SST26VF064B-104I/SM" H 8650 2250 50  0001 L CNN "Arrow Part Number"
-F 11 "https://www.arrow.com/en/products/sst26vf064b-104ism/microchip-technology" H 8650 2150 50  0001 L CNN "Arrow Price/Stock"
-	1    7200 2950
+L PIC16F1778-I_SP:PIC16F1778-I_SP IC?
+U 1 1 6075AE19
+P 4700 2900
+F 0 "IC?" H 5650 3165 50  0000 C CNN
+F 1 "PIC16F1778-I_SP" H 5650 3074 50  0000 C CNN
+F 2 "DIP794W56P254L3486H508Q28N" H 6450 3000 50  0001 L CNN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/40001819B.pdf" H 6450 2900 50  0001 L CNN
+F 4 "Microchip PIC16F1778-I/SP, 8bit PIC Microcontroller, 32MHz, 28 kB Flash, 28-Pin SPDIP" H 6450 2800 50  0001 L CNN "Description"
+F 5 "5.08" H 6450 2700 50  0001 L CNN "Height"
+F 6 "Microchip" H 6450 2600 50  0001 L CNN "Manufacturer_Name"
+F 7 "PIC16F1778-I/SP" H 6450 2500 50  0001 L CNN "Manufacturer_Part_Number"
+F 8 "579-PIC16F1778-I/SP" H 6450 2400 50  0001 L CNN "Mouser Part Number"
+F 9 "https://www.mouser.co.uk/ProductDetail/Microchip-Technology/PIC16F1778-I-SP?qs=BA62vJVifGpNhiE%2FG8an3w%3D%3D" H 6450 2300 50  0001 L CNN "Mouser Price/Stock"
+F 10 "PIC16F1778-I/SP" H 6450 2200 50  0001 L CNN "Arrow Part Number"
+F 11 "https://www.arrow.com/en/products/pic16f1778-isp/microchip-technology" H 6450 2100 50  0001 L CNN "Arrow Price/Stock"
+	1    4700 2900
 	1    0    0    -1  
-$EndComp
-$Comp
-L power:VDD #PWR?
-U 1 1 607588C6
-P 8800 2400
-F 0 "#PWR?" H 8800 2250 50  0001 C CNN
-F 1 "VDD" H 8815 2573 50  0000 C CNN
-F 2 "" H 8800 2400 50  0001 C CNN
-F 3 "" H 8800 2400 50  0001 C CNN
-	1    8800 2400
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	8800 2450 8700 2450
-$Comp
-L Device:C C?
-U 1 1 607902E4
-P 8550 2450
-F 0 "C?" V 8298 2450 50  0000 C CNN
-F 1 "C" V 8389 2450 50  0000 C CNN
-F 2 "" H 8588 2300 50  0001 C CNN
-F 3 "~" H 8550 2450 50  0001 C CNN
-	1    8550 2450
-	0    1    1    0   
 $EndComp
 $Comp
 L power:GND #PWR?
-U 1 1 60790BCF
-P 8400 2600
-F 0 "#PWR?" H 8400 2350 50  0001 C CNN
-F 1 "GND" H 8405 2427 50  0000 C CNN
-F 2 "" H 8400 2600 50  0001 C CNN
-F 3 "" H 8400 2600 50  0001 C CNN
-	1    8400 2600
+U 1 1 6075A15C
+P 7550 2050
+F 0 "#PWR?" H 7550 1800 50  0001 C CNN
+F 1 "GND" H 7555 1877 50  0000 C CNN
+F 2 "" H 7550 2050 50  0001 C CNN
+F 3 "" H 7550 2050 50  0001 C CNN
+	1    7550 2050
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	8400 2450 8400 2600
-Connection ~ 8800 2450
+	9150 1850 9150 1750
 Wire Wire Line
-	8800 2450 8800 2400
+	9550 3400 9550 1950
 Wire Wire Line
-	8800 2450 8800 2950
+	9550 1950 9150 1950
+$Comp
+L SST26VF064B-104I_SM:SST26VF064B-104I_SM IC?
+U 1 1 6076184C
+P 7550 1750
+F 0 "IC?" H 8350 2015 50  0000 C CNN
+F 1 "SST26VF064B-104I_SM" H 8350 1924 50  0000 C CNN
+F 2 "SOIC127P794X203-8N" H 9000 1850 50  0001 L CNN
+F 3 "http://docs-emea.rs-online.com/webdocs/13d5/0900766b813d591e.pdf" H 9000 1750 50  0001 L CNN
+F 4 "Flash Memory SQI 64Mbit 3.0V 8-Pin SOIJ SST26VF064B-104I/SM, SPI Split Gate Flash Memory, 8M x 8 bit 64Mbit, 3ns, 2.7  3.6 V, 8-Pin, SOIJ" H 9000 1650 50  0001 L CNN "Description"
+F 5 "2.03" H 9000 1550 50  0001 L CNN "Height"
+F 6 "Microchip" H 9000 1450 50  0001 L CNN "Manufacturer_Name"
+F 7 "SST26VF064B-104I/SM" H 9000 1350 50  0001 L CNN "Manufacturer_Part_Number"
+F 8 "579-ST26VF064B104ISM" H 9000 1250 50  0001 L CNN "Mouser Part Number"
+F 9 "https://www.mouser.co.uk/ProductDetail/Microchip-Technology/SST26VF064B-104I-SM?qs=wzzOUr4NhYqqlRLwOxpHxA%3D%3D" H 9000 1150 50  0001 L CNN "Mouser Price/Stock"
+F 10 "SST26VF064B-104I/SM" H 9000 1050 50  0001 L CNN "Arrow Part Number"
+F 11 "https://www.arrow.com/en/products/sst26vf064b-104ism/microchip-technology" H 9000 950 50  0001 L CNN "Arrow Price/Stock"
+	1    7550 1750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7100 1850 7100 3300
+Wire Wire Line
+	7100 3300 6600 3300
+Wire Wire Line
+	6600 3400 9550 3400
+Wire Wire Line
+	6600 3200 9150 3200
+Wire Wire Line
+	7100 1850 7550 1850
+Wire Wire Line
+	9150 2050 9150 3200
+Connection ~ 9150 1750
+Wire Wire Line
+	9150 1050 9150 1750
+Wire Wire Line
+	9150 1050 9150 950 
+Connection ~ 9150 1050
+Wire Wire Line
+	8750 1050 8750 1250
+$Comp
+L power:GND #PWR?
+U 1 1 60790BCF
+P 8750 1250
+F 0 "#PWR?" H 8750 1000 50  0001 C CNN
+F 1 "GND" H 8755 1077 50  0000 C CNN
+F 2 "" H 8750 1250 50  0001 C CNN
+F 3 "" H 8750 1250 50  0001 C CNN
+	1    8750 1250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 607902E4
+P 8900 1050
+F 0 "C?" V 8648 1050 50  0000 C CNN
+F 1 "C" V 8739 1050 50  0000 C CNN
+F 2 "" H 8938 900 50  0001 C CNN
+F 3 "~" H 8900 1050 50  0001 C CNN
+	1    8900 1050
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	9150 1050 9050 1050
+$Comp
+L power:VDD #PWR?
+U 1 1 607588C6
+P 9150 950
+F 0 "#PWR?" H 9150 800 50  0001 C CNN
+F 1 "VDD" H 9165 1123 50  0000 C CNN
+F 2 "" H 9150 950 50  0001 C CNN
+F 3 "" H 9150 950 50  0001 C CNN
+	1    9150 950 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6600 3500 6850 3500
+Wire Wire Line
+	6850 3500 6850 1750
+Wire Wire Line
+	6850 1750 7550 1750
+Wire Wire Line
+	7550 1950 7350 1950
+Wire Wire Line
+	7350 1950 7350 1450
+$Comp
+L power:VDD #PWR?
+U 1 1 6078D275
+P 7350 1450
+F 0 "#PWR?" H 7350 1300 50  0001 C CNN
+F 1 "VDD" H 7365 1623 50  0000 C CNN
+F 2 "" H 7350 1450 50  0001 C CNN
+F 3 "" H 7350 1450 50  0001 C CNN
+	1    7350 1450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2950 2400 2950 2100
+Wire Wire Line
+	3050 2400 3050 2100
+$Comp
+L Device:LED D?
+U 1 1 607923B2
+P 6500 1650
+F 0 "D?" H 6493 1867 50  0000 C CNN
+F 1 "LED" H 6493 1776 50  0000 C CNN
+F 2 "" H 6500 1650 50  0001 C CNN
+F 3 "~" H 6500 1650 50  0001 C CNN
+	1    6500 1650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6350 1650 6100 1650
+Wire Wire Line
+	6100 1650 6100 1900
+$Comp
+L power:GND #PWR?
+U 1 1 60797571
+P 6100 1900
+F 0 "#PWR?" H 6100 1650 50  0001 C CNN
+F 1 "GND" H 6105 1727 50  0000 C CNN
+F 2 "" H 6100 1900 50  0001 C CNN
+F 3 "" H 6100 1900 50  0001 C CNN
+	1    6100 1900
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 607980DD
+P 6700 2250
+F 0 "R?" H 6770 2296 50  0000 L CNN
+F 1 "R" H 6770 2205 50  0000 L CNN
+F 2 "" V 6630 2250 50  0001 C CNN
+F 3 "~" H 6700 2250 50  0001 C CNN
+	1    6700 2250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6600 3100 6700 3100
+Wire Wire Line
+	6700 1650 6650 1650
+Wire Wire Line
+	6700 2100 6700 1650
+Wire Wire Line
+	6700 3100 6700 2400
+Wire Wire Line
+	4700 4200 3400 4200
+Wire Wire Line
+	3400 4200 3400 3350
 $EndSCHEMATC
