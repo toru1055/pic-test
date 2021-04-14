@@ -1,0 +1,5 @@
+(fp_lib_table
+  (lib (name RadioExercise)(type KiCad)(uri ${KIPRJMOD}/RadioExercise.pretty)(options "")(descr ""))
+  (lib (name PIC16F1778-I_SP)(type Legacy)(uri /Users/thotta/Downloads/LIB_PIC16F1778-I_SP/PIC16F1778-I_SP/KiCad/PIC16F1778-I_SP.mod)(options "")(descr ""))
+  (lib (name SST26VF064B-104I_SM)(type Legacy)(uri /Users/thotta/Downloads/LIB_SST26VF064B-104I_SM/SST26VF064B-104I_SM/KiCad/SST26VF064B-104I_SM.mod)(options "")(descr ""))
+)
