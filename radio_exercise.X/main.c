@@ -45,7 +45,7 @@
 
 #define INNER_FLASH_ADDRESS 0x3F80
 #define SONG_DATA_ADDRESS 0x0100
-#define SONG_SETTING_ADDRESS 0x0000
+#define SONG_SETTING_ADDRESS 500000 // TODO: 0x0000に変更
 
 uint8_t playing_song = 0;
 uint32_t saving_address = SONG_DATA_ADDRESS;
@@ -132,15 +132,15 @@ void save_end_address(uint16_t song_num, uint32_t end_address) {
 }
 
 void save_end_address_spi(uint32_t song_num, uint32_t end_address) {
-    SPIFlashByteWrite(SONG_SETTING_ADDRESS + (song_num<<4) + 0x000, (uint8_t)(end_address>>16));
-    SPIFlashByteWrite(SONG_SETTING_ADDRESS + (song_num<<4) + 0x001, (uint8_t)(end_address>>8));
-    SPIFlashByteWrite(SONG_SETTING_ADDRESS + (song_num<<4) + 0x002, (uint8_t)(end_address>>0));
+    SPIFlashByteWrite(SONG_SETTING_ADDRESS + (song_num*0x010) + 0x000, (uint8_t)(end_address>>16));
+    SPIFlashByteWrite(SONG_SETTING_ADDRESS + (song_num*0x010) + 0x001, (uint8_t)(end_address>>8));
+    SPIFlashByteWrite(SONG_SETTING_ADDRESS + (song_num*0x010) + 0x002, (uint8_t)(end_address>>0));
 }
 
 uint32_t load_end_address_spi(uint32_t song_num) {
-    uint32_t end_address = SPIFlashByteReadOnce(SONG_SETTING_ADDRESS + (song_num<<4) + 0x000);
-    end_address = (end_address<<8) + (uint32_t)SPIFlashByteReadOnce(SONG_SETTING_ADDRESS + (song_num<<4) + 0x001);
-    end_address = (end_address<<8) + (uint32_t)SPIFlashByteReadOnce(SONG_SETTING_ADDRESS + (song_num<<4) + 0x002);
+    uint32_t end_address = SPIFlashByteReadOnce(SONG_SETTING_ADDRESS + (song_num*0x010) + 0x000);
+    end_address = (end_address<<8) + (uint32_t)SPIFlashByteReadOnce(SONG_SETTING_ADDRESS + (song_num*0x010) + 0x001);
+    end_address = (end_address<<8) + (uint32_t)SPIFlashByteReadOnce(SONG_SETTING_ADDRESS + (song_num*0x010) + 0x002);
     return end_address;
 }
 
@@ -168,7 +168,11 @@ void save_music(void) {
 void save_music_dummy(void) {
     SPI_Open(SPI_DEFAULT);
     SPIFlashUnprotect();
-    save_end_address_spi(1, 60000);
+    CS_SetLow();
+    SPI_ExchangeByte(0x20);
+    SendAdrs(SONG_SETTING_ADDRESS);
+    CS_SetHigh();
+    save_end_address_spi(1, 120000);
     save_end_address_spi(2, 240000);
     SPI_Close();
 }
@@ -213,7 +217,7 @@ void play_music_once(uint32_t song_num) {
     if (song_num < 2) {
         from_address = SONG_DATA_ADDRESS;
     } else {
-        from_address = load_end_address_spi(song_num - 1);
+        from_address = load_end_address_spi(song_num - 1) + 1;
     }
     to_address = load_end_address_spi(song_num);
     SPIFlashReadOpen(from_address);
@@ -248,6 +252,7 @@ void main(void)
     if (RC0) {
         RB5 = 1;
         __delay_ms(100);
+        // TODO: コメントアウト箇所変更
 //        IOCCF1_SetInterruptHandler(save_1st_music);
 //        IOCCF2_SetInterruptHandler(save_2nd_music);
 //        save_music();
