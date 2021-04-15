@@ -131,6 +131,19 @@ void save_end_address(uint16_t song_num, uint32_t end_address) {
     FLASH_WriteWord((song_num*0x010) + INNER_FLASH_ADDRESS + 0x002, Buf, (uint8_t)(end_address>>0));
 }
 
+void save_end_address_spi(uint32_t song_num, uint32_t end_address) {
+    SPIFlashByteWrite(SONG_SETTING_ADDRESS + (song_num<<4) + 0x000, (uint8_t)(end_address>>16));
+    SPIFlashByteWrite(SONG_SETTING_ADDRESS + (song_num<<4) + 0x001, (uint8_t)(end_address>>8));
+    SPIFlashByteWrite(SONG_SETTING_ADDRESS + (song_num<<4) + 0x002, (uint8_t)(end_address>>0));
+}
+
+uint32_t load_end_address_spi(uint32_t song_num) {
+    uint32_t end_address = SPIFlashByteReadOnce(SONG_SETTING_ADDRESS + (song_num<<4) + 0x000);
+    end_address = (end_address<<8) + (uint32_t)SPIFlashByteReadOnce(SONG_SETTING_ADDRESS + (song_num<<4) + 0x001);
+    end_address = (end_address<<8) + (uint32_t)SPIFlashByteReadOnce(SONG_SETTING_ADDRESS + (song_num<<4) + 0x002);
+    return end_address;
+}
+
 void save_1st_music(void) {
     save_end_address(1, saving_address);
 }
@@ -153,8 +166,11 @@ void save_music(void) {
 }
 
 void save_music_dummy(void) {
-    save_end_address(1, 120000);
-    save_end_address(2, 240000);
+    SPI_Open(SPI_DEFAULT);
+    SPIFlashUnprotect();
+    save_end_address_spi(1, 60000);
+    save_end_address_spi(2, 240000);
+    SPI_Close();
 }
 
 uint32_t load_end_address(uint16_t song_num) {
@@ -186,12 +202,20 @@ void play_music(void) {
     SPI_Close();
 }
 
-void play_music_once(uint32_t from_address, uint32_t to_address) {
+void play_music_once(uint32_t song_num) {
+    uint32_t from_address;
+    uint32_t to_address;
     uint32_t i;
     uint8_t data;
     RC3 = 0;
     CS_SetHigh();
     SPI_Open(SPI_DEFAULT);
+    if (song_num < 2) {
+        from_address = SONG_DATA_ADDRESS;
+    } else {
+        from_address = load_end_address_spi(song_num - 1);
+    }
+    to_address = load_end_address_spi(song_num);
     SPIFlashReadOpen(from_address);
     for (i = from_address; i < to_address; i++) {
         while(PIR1bits.TMR2IF == 0);
@@ -205,39 +229,11 @@ void play_music_once(uint32_t from_address, uint32_t to_address) {
 }
 
 void play_1st_music(void) {
-    uint32_t from_address = SONG_DATA_ADDRESS;
-    uint32_t to_address = load_end_address(1);
-    if (playing_song == 0) {
-        playing_song = 1;
-        play_music_once(from_address, to_address);
-    } else if(playing_song == 1) {
-        SPIFlashReadClose();
-        SPI_Close();
-    } else {
-        SPIFlashReadClose();
-        SPI_Close();
-        playing_song = 1;
-        play_music_once(from_address, to_address);
-    }
-    playing_song = 0;
+    play_music_once(1);
 }
 
 void play_2nd_music(void) {
-    uint32_t from_address = load_end_address(1) + 1;
-    uint32_t to_address = load_end_address(2);
-    if (playing_song == 0) {
-        playing_song = 2;
-        play_music_once(from_address, to_address);
-    } else if(playing_song == 2) {
-        SPIFlashReadClose();
-        SPI_Close();
-    } else {
-        SPIFlashReadClose();
-        SPI_Close();
-        playing_song = 2;
-        play_music_once(from_address, to_address);
-    }
-    playing_song = 0;
+    play_music_once(2);
 }
 
 /*
