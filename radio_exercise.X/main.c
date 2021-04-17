@@ -252,11 +252,10 @@ void main(void)
     if (RC0) {
         RB5 = 1;
         __delay_ms(100);
-        // TODO: コメントアウト箇所変更
-//        IOCCF1_SetInterruptHandler(save_1st_music);
-//        IOCCF2_SetInterruptHandler(save_2nd_music);
-//        save_music();
-        save_music_dummy();
+        IOCCF1_SetInterruptHandler(save_1st_music);
+        IOCCF2_SetInterruptHandler(save_2nd_music);
+        save_music();
+//        save_music_dummy();
     } else {
         IOCCF1_SetInterruptHandler(play_1st_music);
         IOCCF2_SetInterruptHandler(play_2nd_music);
