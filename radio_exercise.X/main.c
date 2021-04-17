@@ -145,11 +145,11 @@ uint32_t load_end_address_spi(uint32_t song_num) {
 }
 
 void save_1st_music(void) {
-    save_end_address(1, saving_address);
+    save_end_address_spi(1, saving_address);
 }
 
 void save_2nd_music(void) {
-    save_end_address(2, saving_address);
+    save_end_address_spi(2, saving_address);
 }
 
 void save_music(void) {
