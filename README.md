@@ -32,5 +32,22 @@
 - [ ] ラジオ体操の音源を入れる
 - [ ] PCBの設計
 
+### 6. 音源をWAV形式で用意する
+#### ffmpegをインストール
+```
+$ brew install homebrew-ffmpeg/ffmpeg/ffmpeg
+```
+
+#### mp3音源を連結する
+```
+$ for f in *.mp3; do echo "file '$f'" >> mylist.txt; done
+$ ffmpeg -f concat -safe 0 -i mylist.txt -c copy output.mp3
+```
+
+#### MP3→WAV(8kHz,8bit,mono)へ変換
+```
+$ ffmpeg -i output.mp3 -ac 1 -ar 8000 -acodec pcm_u8 output.wav
+```
+
 ## 音声ファイルのwifiアップロード
 ### 1. esp-wroom-02でアップロードされたファイルをSPI通信でフラッシュメモリ書き込み
