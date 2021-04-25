@@ -44,8 +44,8 @@
 #include "mcc_generated_files/mcc.h"
 
 #define INNER_FLASH_ADDRESS 0x3F80
-#define SONG_DATA_ADDRESS 0x0100
-#define SONG_SETTING_ADDRESS 500000 // TODO: 0x0000に変更
+#define SONG_DATA_ADDRESS 0x0600
+#define SONG_SETTING_ADDRESS 0x0500 // TODO: 0x0000に変更
 
 uint8_t playing_song = 0;
 uint32_t saving_address = SONG_DATA_ADDRESS;
@@ -156,7 +156,7 @@ void save_music(void) {
     uint8_t data;
     saving_address = SONG_DATA_ADDRESS;
     SPI_Open(SPI_DEFAULT);
-    SPIFlashUnprotect();
+    //SPIFlashUnprotect();
     SPIFlashErase();
     while(1) {
         data = getch();
